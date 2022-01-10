@@ -1,6 +1,6 @@
 import saveIcon from "../../images/bookmark-icon.svg";
 
-function NewsCard({image, title, link, text, source}){
+function NewsCard({image, title, link, text, source, date}){
     return (
       <li className="news-card">
         <a href={link}>
