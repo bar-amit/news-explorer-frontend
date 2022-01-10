@@ -1,5 +1,5 @@
-import facebookIcon from "../../images/footer__facebook-icon.svg"
-import githubIcon from "../../images/footer__tighub-icon.svg";
+import facebookIcon from "../../images/footer__facebook-icon.svg";
+import githubIcon from "../../images/footer__github-icon.svg";
 
 function Footer() {
     return (
