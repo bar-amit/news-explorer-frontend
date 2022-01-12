@@ -1,8 +1,10 @@
+import './SearchForm.css';
+
 function SearchForm() {
     return (
       <form className="search__form">
-        <input type="text" placeholder="Enter topic"></input>
-        <button type="submit">Search</button>
+        <input className="search__input" type="text" placeholder="Enter topic"></input>
+        <button className="search__button" type="submit">Search</button>
       </form>
     );
 }

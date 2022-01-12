@@ -1,0 +1,34 @@
+.search {
+    background-image: url(../../images/search__background.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 162px;
+}
+
+.search__title {
+    margin: 0;
+    margin-bottom: 32px;
+    max-width: 608px;
+    font-family: "Roboto Slab Regular", serif;
+    font-weight: 400;
+    font-size: 60px;
+    line-height: 64px;
+    text-align: left;
+    color: white;
+}
+
+.search__text {
+    margin: 0;
+    margin-bottom: 88px;
+    max-width: 608px;
+    font-family: "Roboto Regular", sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 24px;
+    text-align: left;
+    color: white;
+}
