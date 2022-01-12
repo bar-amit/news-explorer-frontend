@@ -1,7 +1,10 @@
 .footer {
+    height: 80px;
+    line-height: 80px;
     padding: 0 105px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 .footer__copyrights {
