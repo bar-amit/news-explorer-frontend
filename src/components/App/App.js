@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Header from "../Header/Header";
 import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
@@ -11,8 +11,15 @@ function App() {
     setIsUserPopupOpen(false);
   }
   function openUserPopup() {
-    setIsUserPopupOpen(false);
+    setIsUserPopupOpen(true);
   }
+  useEffect(() => {
+    const handleEsc = (e) => {
+      if(e.key === 'Escape') closeUserPopup();
+    };
+    if(isUserPopupOpen) window.addEventListener('keydown', handleEsc);
+    return () => window.removeEventListener('keydown', handleEsc);
+  }, [isUserPopupOpen]);
 
   return <div className="App">
     <Header signUser={openUserPopup} />
