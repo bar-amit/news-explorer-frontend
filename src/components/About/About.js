@@ -1,9 +1,11 @@
+import './About.css';
 import aboutImage from '../../images/main__image.png';
 
 function About(){
     return (
-        <section className="about">
-          <img className="about__image" src={aboutImage} />
+      <section className="about">
+        <img className="about__image" src={aboutImage} />
+        <article className="about__column">
           <h3 className="about__title">About the author</h3>
           <p className="about__text">
             This block describes the project author. Here you should indicate
@@ -13,7 +15,8 @@ function About(){
             You can also talk about your experience with Practicum, what you
             learned there, and how you can help potential customers.
           </p>
-        </section>
+        </article>
+      </section>
     );
 }
 

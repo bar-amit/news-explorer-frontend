@@ -1,0 +1,31 @@
+.about {
+    display: flex;
+    padding: 80px 104px;
+}
+
+.about__column {
+    max-width: 600px;
+    margin-left: 56px;
+    display: flex;
+    flex-direction: column;
+}
+
+.about__title {
+    margin: 0;
+    margin-top: 50px;
+    margin-bottom: 24px;
+    text-align: left;
+    font-family: "Roboto Slab Regular", serif;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 46px;
+}
+
+.about__text {
+    margin: 0;
+    margin-bottom: 24px;
+    text-align: left;
+    font-family: "Roboto Regular", sans-serif;
+    font-size: 18px;
+    line-height: 24px;
+}
