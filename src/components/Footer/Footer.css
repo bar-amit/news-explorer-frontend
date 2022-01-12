@@ -1,0 +1,31 @@
+.footer {
+    padding: 0 105px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer__copyrights {
+    color: #B6BCBF;
+    font-family: "Roboto Regular", sans-serif;
+    font-size: 16px;
+}
+
+.footer__link-list {
+    display: flex;
+    justify-content: space-between;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    gap: 40px;
+}
+
+.footer__link {
+    color: #1A1B22;
+    text-decoration: none;
+    font-family: "Roboto Regular", sans-serif;
+    font-size: 18px;
+}
+
+.footer__icon:last-child {
+    margin-left: 27px;
+}

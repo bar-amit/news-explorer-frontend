@@ -1,22 +1,28 @@
 import facebookIcon from "../../images/footer__facebook-icon.svg";
 import githubIcon from "../../images/footer__github-icon.svg";
 
+import './Footer.css';
+
 function Footer() {
     return (
       <footer className="footer">
         <span className="footer__copyrights">
           © 2021 Supersite, Powered by News API
         </span>
-        <ul className="footer__links">
+        <ul className="footer__link-list">
           <li>
-            <a>Home</a>
+            <a className="footer__link" href="#">
+              Home
+            </a>
           </li>
           <li>
-            <a>Practicum by Yandex</a>
+            <a className="footer__link" href="#">
+              Practicum by Yandex
+            </a>
           </li>
           <li>
-            <img src={githubIcon} />
-            <img src={facebookIcon} />
+            <img className="footer__icon" src={githubIcon} />
+            <img className="footer__icon" src={facebookIcon} />
           </li>
         </ul>
       </footer>
