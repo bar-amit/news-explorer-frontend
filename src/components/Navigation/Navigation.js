@@ -1,18 +1,21 @@
+import { Link, useLocation } from 'react-router-dom';
 import './Navigation.css';
 
 function Navigation({ signUser }) {
+  const location = useLocation();
+
   return (
     <nav className="navigation">
       <ul className="navigation__link-list">
-        <li className="navigation__active-link">
-          <a className="navigation__link" href="#">
+        <li className={`${location.pathname === '/' ? 'navigation__active-link' : ''}`}>
+          <Link className='navigation__link' to="/">
             Home
-          </a>
+          </Link>
         </li>
-        <li>
-          <a className="navigation__link" href="#">
+        <li className={`${location.pathname === '/saved-news' ? 'navigation__active-link' : ''}`}>
+          <Link className="navigation__link" to="saved-news">
             Saved articles
-          </a>
+          </Link>
         </li>
         <li className="navigation__button">
           <a className="navigation__link" href="#" onClick={signUser}>

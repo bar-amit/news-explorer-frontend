@@ -1,11 +1,14 @@
 import { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import Navigation from "../Navigation/Navigation";
 import './Header.css';
 
 const hiddenHeaderClass = 'header_hidden';
 const headerThemeClass = "header_theme_bright";
 
-function Header({ signUser, brightTheme }) {
+function Header({ signUser }) {
+  const brightTheme = useLocation().pathname === '/saved-news';
+
   const [scrollPosition, setScrollPosition] = useState(window.scrollY);
   const [headerVisibilityClass, setHeaderVisibilityClass] = useState("");
 
@@ -25,7 +28,7 @@ function Header({ signUser, brightTheme }) {
     window.removeEventListener("scroll", onScroll);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  }, [onScroll]);
 
   return (
     <header
