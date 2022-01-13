@@ -1,9 +1,12 @@
+import { Link } from 'react-router-dom';
+
 import facebookIcon from "../../images/footer__facebook-icon.svg";
 import githubIcon from "../../images/footer__github-icon.svg";
 
 import './Footer.css';
 
 function Footer() {
+    const scrollHome = () => window.scrollTo(0);
     return (
       <footer className="footer">
         <span className="footer__copyrights">
@@ -11,9 +14,9 @@ function Footer() {
         </span>
         <ul className="footer__link-list">
           <li>
-            <a className="footer__link" href="#">
+            <Link className="footer__link" to="/" onClick={scrollHome}>
               Home
-            </a>
+            </Link>
           </li>
           <li>
             <a className="footer__link" href="#">
