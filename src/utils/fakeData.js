@@ -66,4 +66,44 @@ const cards = [
   },
 ];
 
-export { cards }
+const savedCards = [
+  {
+    image:
+      "https://images.unsplash.com/photo-1581888227599-779811939961?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjB8fGRvZ3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+    title: "Everyone Needs a Special 'Sit Spot' in Nature",
+    link: "https://www.treehugger.com/special-sit-spot-nature-5085811",
+    text: 'Ever since I read Richard Louv\'s influential book, "Last Child in the Woods," the idea of having a special "sit spot" has stuck with me. This advice, which Louv attributes to nature educator Jon Young, is for both adults and children to find...',
+    source: "Treehugger",
+    date: "November 4, 2020",
+  },
+  {
+    image:
+      "https://images.unsplash.com/photo-1500157287460-ea57183c1fb4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8dGV0b24lMjBjcmVzdHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+    title: "Grand Teton Renews Historic Crest Trail",
+    link: "https://www.nationalparkstraveler.org/2020/10/grand-teton-renews-historic-crest-trail",
+    text: "“The linking together of the Cascade and Death Canyon trails, at their heads, took place on October 1, 1933, and marked the first step in the realization of a plan whereby the hiker will be enabled to visit that most fascinating region…In traversing this loop, one completely encircles the Three Tetons and adjacent high peaks, viewing them from all sides.",
+    source: "National parks traveler",
+    date: "October 19, 2020",
+  },
+  {
+    image:
+      "https://images.unsplash.com/photo-1611273426858-450d8e3c9fce?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8Y29hbHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+    title:
+      "China Is Finding Fewer Reliable Sources of Coal. That Could Be Bad News for the Climate",
+    link: "https://time.com/6133129/china-coal-imports-indonesia-ban/",
+    text: "Until this month, much of the coal China imports to power its massive economy sailed into Chinese ports from Indonesia. But on Jan. 1, the Southeast Asian nation announced a ban on coal exports amid concerns over local shortages, leaving the world’s second largest economy in a lurch.",
+    source: "Time",
+    date: "January 12, 2022",
+  },
+  {
+    image:
+      "https://images.unsplash.com/photo-1523585559758-0a4a68774f35?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8c2VhJTIwbW9uc3RlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+    title: "Giant 'sea monster' fossil is one of the largest of its kind",
+    link: "https://www.nationalgeographic.com/science/article/giant-sea-monster-fossil-is-one-of-the-largest-of-its-kind",
+    text: "The roughly 30-foot-long fossil found in England offers new clues to how ichthyosaurs evolved into marine titans.",
+    source: "National Geographic",
+    date: "January 10, 2022",
+  },
+];
+
+export { cards, savedCards };

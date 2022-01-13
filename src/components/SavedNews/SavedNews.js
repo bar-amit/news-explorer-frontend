@@ -1,15 +1,16 @@
-import NewsCard from "../NewsCard/NewsCard";
 import SavedNewsHeader from "../SavedNewsHeader/SavedNewsHeader";
+import NewsCardList from "../NewsCardList/NewsCardList";
 
-function SavedNews({cards}) {
+import "./SavedNews.css";
+import { savedCards } from "../../utils/fakeData";
+
+function SavedNews() {
     return (
       <main className="saved-news">
         <SavedNewsHeader />
-        <ul className="saved-news__list">
-          {cards.map((c) => (
-            <NewsCard {...c} />
-          ))}
-        </ul>
+        <section className="saved-news__container">
+          <NewsCardList data={savedCards} />
+        </section>
       </main>
     );
 }
