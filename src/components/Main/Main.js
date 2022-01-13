@@ -1,15 +1,16 @@
-import NewsCardList from '../NewsCardList/NewsCardList';
+import SearchResults from '../SearchResults/SearchResults';
 import About from "../About/About";
 import Search from '../Search/Search';
 
 import { cards } from '../../utils/fakeData';
 import './Main.css';
 
+
 function Main() {
     return (
       <main className="main">
         <Search />
-        <NewsCardList cards={cards} />
+        <SearchResults cards={cards} />
         <About />
       </main>
     );
