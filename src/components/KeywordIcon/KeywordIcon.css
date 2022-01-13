@@ -1,0 +1,16 @@
+.news-card__keyword {
+    height: 40px;
+    padding: 0 22px;
+    background: #ffffff;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 24px;
+    left: 24px;
+    color: black;
+    font-family: "Roboto Medium", sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+}

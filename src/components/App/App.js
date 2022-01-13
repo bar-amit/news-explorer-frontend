@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import Header from "../Header/Header";
 import Main from "../Main/Main";
+import SavedNews from "../SavedNews/SavedNews";
 import Footer from "../Footer/Footer";
 import PopupWithForm from "../PopupWithForm/PopupWithForm";
 import "./App.css";
@@ -21,12 +22,14 @@ function App() {
     return () => window.removeEventListener('keydown', handleEsc);
   }, [isUserPopupOpen]);
 
-  return <div className="App">
-    <Header signUser={openUserPopup} />
-    <Main />
-    <Footer />
-    <PopupWithForm isOpen={isUserPopupOpen} close={closeUserPopup} />
-  </div>;
+  return (
+    <div className="App">
+      <Header signUser={openUserPopup} brightTheme={true} />
+      <SavedNews />
+      <Footer />
+      <PopupWithForm isOpen={isUserPopupOpen} close={closeUserPopup} />
+    </div>
+  );
 }
 
 export default App;

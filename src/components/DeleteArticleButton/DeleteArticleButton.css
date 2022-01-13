@@ -1,0 +1,50 @@
+.news-card__button {
+    width: 40px;
+    height: 40px;
+    background-color: white;
+    border: 0;
+    border-radius: 8px;
+    padding: 0;
+    padding-top: 3px;
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    cursor: pointer;
+    transition: transform .4s ease;
+}
+
+.news-card__button:hover {
+    box-shadow: 0 0 5px 1px #eeeff3d5;
+    transform: scale(1.1);
+}
+
+.news-card__button:hover .news-card__trash {
+    stroke: #1A1B22;
+    fill: #1A1B22;
+}
+
+.news-card__button::before {
+    width: 160px;
+    height: 40px;
+    background-color: white;
+    border-radius: 8px;
+    content: "Remove from saved";
+    color: black;
+    font-family: "Roboto Medium", sans-serif;
+    font-weight: 500;
+    font-size: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: -165px;
+    top: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s ease;
+}
+
+.news-card__button:hover::before {
+    visibility: visible;
+    opacity: 1;
+}

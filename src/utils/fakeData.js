@@ -75,6 +75,7 @@ const savedCards = [
     text: 'Ever since I read Richard Louv\'s influential book, "Last Child in the Woods," the idea of having a special "sit spot" has stuck with me. This advice, which Louv attributes to nature educator Jon Young, is for both adults and children to find...',
     source: "Treehugger",
     date: "November 4, 2020",
+    keyword: "Nature",
   },
   {
     image:
@@ -84,6 +85,7 @@ const savedCards = [
     text: "“The linking together of the Cascade and Death Canyon trails, at their heads, took place on October 1, 1933, and marked the first step in the realization of a plan whereby the hiker will be enabled to visit that most fascinating region…In traversing this loop, one completely encircles the Three Tetons and adjacent high peaks, viewing them from all sides.",
     source: "National parks traveler",
     date: "October 19, 2020",
+    keyword: "Parks",
   },
   {
     image:
@@ -94,6 +96,7 @@ const savedCards = [
     text: "Until this month, much of the coal China imports to power its massive economy sailed into Chinese ports from Indonesia. But on Jan. 1, the Southeast Asian nation announced a ban on coal exports amid concerns over local shortages, leaving the world’s second largest economy in a lurch.",
     source: "Time",
     date: "January 12, 2022",
+    keyword: "Environment",
   },
   {
     image:
@@ -103,6 +106,7 @@ const savedCards = [
     text: "The roughly 30-foot-long fossil found in England offers new clues to how ichthyosaurs evolved into marine titans.",
     source: "National Geographic",
     date: "January 10, 2022",
+    keyword: "Science",
   },
 ];
 

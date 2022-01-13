@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import NewsCardList from '../NewsCardList/NewsCardList';
+import SaveArticleButton from '../SaveArticleButton/SaveArticleButton';
 
 import './SearchResults.css';
 
@@ -21,7 +22,7 @@ function SearchResults({ cards }) {
   return (
     <section className="search-results">
       <h3 className="search-results__title">Search results</h3>
-      <NewsCardList data={cardList} />
+      <NewsCardList data={cardList} buttons={<SaveArticleButton />} />
       <button
         className="search-results__button"
         type="button"

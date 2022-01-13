@@ -5,14 +5,14 @@ import './Header.css';
 const hiddenHeaderClass = 'header_hidden';
 const headerThemeClass = "header_theme_bright";
 
-function Header({ signUser }) {
+function Header({ signUser, brightTheme }) {
   const [scrollPosition, setScrollPosition] = useState(window.scrollY);
   const [headerVisibilityClass, setHeaderVisibilityClass] = useState("");
 
   function onScroll() {
     const currentPosition = window.scrollY;
     setScrollPosition(currentPosition);
-    if(!this.prevScroll) this.prevScroll = currentPosition;
+    if (!this.prevScroll) this.prevScroll = currentPosition;
     else if (currentPosition < this.prevScroll) {
       setHeaderVisibilityClass("");
     } else if (headerVisibilityClass === "") {
@@ -30,7 +30,7 @@ function Header({ signUser }) {
   return (
     <header
       className={`header ${headerVisibilityClass} ${
-        scrollPosition > 60 && !headerVisibilityClass
+        (scrollPosition > 60 && !headerVisibilityClass) || brightTheme
           ? headerThemeClass
           : ""
       }`}
