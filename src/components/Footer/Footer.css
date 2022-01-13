@@ -27,6 +27,15 @@
     text-decoration: none;
     font-family: "Roboto Regular", sans-serif;
     font-size: 18px;
+    transition: opacity .4s ease-out;
+}
+
+.footer__link:hover {
+    opacity: .7;
+}
+
+.footer__icon {
+    cursor: pointer;
 }
 
 .footer__icon:last-child {
