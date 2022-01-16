@@ -40,3 +40,15 @@
 .search__button:hover {
     transform: scale(1.07);
 }
+
+@media screen and (max-width: 1020px) {
+    .search__form {
+        height: 56px;
+        max-width: 450px;
+        margin-bottom: 48px;
+    }
+
+    .search__input {
+        width: 290px;
+    }
+}

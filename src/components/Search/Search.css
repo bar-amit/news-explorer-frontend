@@ -32,3 +32,22 @@
     text-align: left;
     color: white;
 }
+
+
+@media screen and (max-width: 1020px) {
+    .search {
+        padding-top: 104px;
+    }
+
+    .search__title {
+        font-size: 36px;
+        line-height: 40px;
+        max-width: 452px;
+        margin-bottom: 16px;
+    }
+
+    .search__text {
+        max-width: 452px;
+        margin-bottom: 48px;
+    }
+}
