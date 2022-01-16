@@ -11,7 +11,7 @@ function PopupWithForm({isOpen, close}) {
 
   return (
     <Popup isOpen={isOpen} close={close}>
-      <form className="user-form">
+      <form className="user-form" validate>
         {isNewUser ? (
           <>
             <h3 className="user-form__title">Sign up</h3>
@@ -22,6 +22,8 @@ function PopupWithForm({isOpen, close}) {
                 type="email"
                 name="email"
                 placeholder="Enter email"
+                minLength="6"
+                maxLength="30"
               ></input>
               <span className="user-form__error"></span>
             </label>
@@ -32,6 +34,8 @@ function PopupWithForm({isOpen, close}) {
                 type="password"
                 name="password"
                 placeholder="Enter password"
+                minLength="6"
+                maxLength="30"
               ></input>
               <span className="user-form__error"></span>
             </label>
@@ -42,14 +46,19 @@ function PopupWithForm({isOpen, close}) {
                 type="text"
                 name="username"
                 placeholder="Enter your username"
+                minLength="2"
+                maxLength="30"
               ></input>
               <span className="user-form__error"></span>
             </label>
-            <button className="user-form__button" type="submit">
+            <button className="user-form__button" type="submit" disabled>
               Sign up
             </button>
             <p className="user-form__text">
-              or <span className="user-form__link" onClick={switchForm}>Sign in</span>
+              or{" "}
+              <span className="user-form__link" onClick={switchForm}>
+                Sign in
+              </span>
             </p>
           </>
         ) : (
@@ -62,6 +71,8 @@ function PopupWithForm({isOpen, close}) {
                 type="email"
                 name="email"
                 placeholder="Enter email"
+                minLength="6"
+                maxLength="30"
               ></input>
               <span className="user-form__error"></span>
             </label>
@@ -72,14 +83,19 @@ function PopupWithForm({isOpen, close}) {
                 type="password"
                 name="password"
                 placeholder="Enter password"
+                minLength="6"
+                maxLength="30"
               ></input>
               <span className="user-form__error"></span>
             </label>
-            <button className="user-form__button" type="submit">
+            <button className="user-form__button" type="submit" disabled>
               Sign in
             </button>
             <p className="user-form__text">
-              or <span className="user-form__link" onClick={switchForm}>Sign up</span>
+              or{" "}
+              <span className="user-form__link" onClick={switchForm}>
+                Sign up
+              </span>
             </p>
           </>
         )}
