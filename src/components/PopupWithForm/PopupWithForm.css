@@ -89,6 +89,7 @@
     background-color: #E6E8EB;
     color: #B6BCBF;
     cursor: not-allowed;
+    box-shadow: none;
 }
 
 .user-form__button:hover {
