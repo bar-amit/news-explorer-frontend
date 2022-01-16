@@ -51,3 +51,15 @@
     transform: scale(1.05);
     background: var(--border-color);
 }
+
+@media screen and (max-width: 1200px) {
+    .navigation__link {
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 1020px) {
+    .navigation__link-list {
+        gap: 16px;
+    }
+}

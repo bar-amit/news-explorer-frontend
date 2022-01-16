@@ -36,3 +36,17 @@
     font-weight: 700;
 
 }
+
+@media screen and (max-width: 1440px) {
+    .header {
+        max-width: none;
+        width: calc(100vw - 80px);
+        padding: 0 40px;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .header {
+        height: 66px;
+    }
+}
