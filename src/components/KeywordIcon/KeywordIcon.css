@@ -14,3 +14,10 @@
     font-weight: 500;
     font-size: 14px;
 }
+
+@media screen and (max-width: 1440px) {
+    .news-card__keyword {
+        top: 8px;
+        left: 8px;
+    }
+}
