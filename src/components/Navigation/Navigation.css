@@ -62,4 +62,8 @@
     .navigation__link-list {
         gap: 16px;
     }
+
+    .navigation__button {
+        padding: 8px 17px;
+    }
 }
