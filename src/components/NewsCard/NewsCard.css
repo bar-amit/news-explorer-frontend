@@ -168,3 +168,30 @@
         -webkit-line-clamp: 5;
     }
 }
+
+@media screen and (max-width: 540px) {
+    .news-card {
+        aspect-ratio: 0.47;
+    }
+
+    .news-card__text {
+        -webkit-line-clamp: 4;
+    }
+}
+
+@media screen and (max-width: 458px) {
+    .news-card {
+        aspect-ratio: 0.6545;
+        width: 100%;
+    }
+
+    .news-card__text {
+        -webkit-line-clamp: 4;
+    }
+
+    .news-card__title {
+        margin-bottom: 14px;
+        min-height: auto;
+        height: fit-content;
+    }
+}
