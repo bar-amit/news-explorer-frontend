@@ -1,0 +1,24 @@
+.header__menu-button {
+    background-color: transparent;
+    padding: 0;
+    border: 0;
+    cursor: pointer;
+    transition: opacity 0.4s ease-out;
+    --fill-color: white;
+}
+
+.header__menu-button:hover {
+    opacity: 0.5;
+}
+
+.header__menu-button_theme_bright {
+    --fill-color: black;
+}
+
+.header__close-menu {
+    fill: var(--fill-color);
+}
+
+.header__open-menu {
+    fill: var(--fill-color);
+}

@@ -1,9 +1,8 @@
 import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import MobileMenu from "../MobileMenu/MobileMenu";
+import MobileMenuButton from '../MobileMenuButton/MobileMenuButton';
 import Navigation from "../Navigation/Navigation";
-import openMenuButton from "../../images/header__mobile-menu_open.svg";
-import closeMenuButton from "../../images/header__mobile-menu_close.svg";
 import './Header.css';
 
 const hiddenHeaderClass = 'header_hidden';
@@ -54,20 +53,14 @@ function Header({ signUser }) {
       }`}
     >
       <h1 className="header__title">NewsExplorer</h1>
-      {innerWidth > 458 ? (
+      {innerWidth > 640 ? (
         <Navigation signUser={signUser} />
       ) : (
-        <button
-          className="header__menu-button"
-          type="button"
-          onClick={toggleMobileMenu}
-        >
-          {isMobileMenuOpen ? (
-            <img src={closeMenuButton} alt="close menu" />
-          ) : (
-            <img src={openMenuButton} alt="open menu" />
-          )}
-        </button>
+        <MobileMenuButton
+          brightTheme={brightTheme}
+          closeMenu={toggleMobileMenu}
+          isOpen={isMobileMenuOpen}
+        />
       )}
       <MobileMenu
         isOpen={isMobileMenuOpen}
