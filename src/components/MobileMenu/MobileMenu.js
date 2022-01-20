@@ -30,7 +30,7 @@ function MobileMenu({isOpen, isBrightTheme, signUser, closeMenu}) {
                 </Link>
               </li>
               <li className="mobile-menu__list-item" onClick={closeMenu}>
-                <Link to="/saved-articles" className="mobile-menu__link">
+                <Link to="/saved-news" className="mobile-menu__link">
                   Saved articles
                 </Link>
               </li>
