@@ -1,5 +1,5 @@
-import { Link, useLocation } from 'react-router-dom';
-import './Navigation.css';
+import { Link, useLocation } from "react-router-dom";
+import "./Navigation.css";
 
 function Navigation({ signUser }) {
   const location = useLocation();
@@ -26,7 +26,7 @@ function Navigation({ signUser }) {
           </Link>
         </li>
         <li className="navigation__button navigation__link" onClick={signUser}>
-            Sign in
+          Sign in
         </li>
       </ul>
     </nav>

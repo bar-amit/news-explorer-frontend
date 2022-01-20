@@ -1,11 +1,11 @@
-import { useState } from 'react';
+import { useState } from "react";
 import Popup from "../Popup/Popup";
 
-import './PopupWithForm.css';
+import "./PopupWithForm.css";
 
-function PopupWithForm({isOpen, close}) {
-  const [ isNewUser, setIsNewUser ] = useState(false);
-  function switchForm(){
+function PopupWithForm({ isOpen, close }) {
+  const [isNewUser, setIsNewUser] = useState(false);
+  function switchForm() {
     setIsNewUser(!isNewUser);
   }
 

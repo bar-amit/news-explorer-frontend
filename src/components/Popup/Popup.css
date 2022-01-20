@@ -1,43 +1,43 @@
 .popup {
-    width: 100vw;
-    height: 100vh;
-    visibility: hidden;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 500;
-    background: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
+  width: 100vw;
+  height: 100vh;
+  visibility: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 500;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
 }
 
 .popup_visible {
-    visibility: visible;
+  visibility: visible;
 }
 
 .popup__container {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    background: white;
-    border-radius: 16px;
-    padding: 0 36px;
-    width: calc(430px - 36px*2);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: white;
+  border-radius: 16px;
+  padding: 0 36px;
+  width: calc(430px - 36px * 2);
 }
 
 .popup__button {
-    border: 0;
-    padding: 0;
-    background: none;
-    position: absolute;
-    top: -40px;
-    right: -40px;
-    cursor: pointer;
-    transition: opacity .4s ease-out;
+  border: 0;
+  padding: 0;
+  background: none;
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  cursor: pointer;
+  transition: opacity 0.4s ease-out;
 }
 
 .popup__button:hover {
-    opacity: 0.5;
+  opacity: 0.5;
 }

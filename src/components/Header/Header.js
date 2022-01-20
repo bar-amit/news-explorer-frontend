@@ -1,15 +1,15 @@
-import { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import MobileMenu from "../MobileMenu/MobileMenu";
-import MobileMenuButton from '../MobileMenuButton/MobileMenuButton';
+import MobileMenuButton from "../MobileMenuButton/MobileMenuButton";
 import Navigation from "../Navigation/Navigation";
-import './Header.css';
+import "./Header.css";
 
-const hiddenHeaderClass = 'header_hidden';
+const hiddenHeaderClass = "header_hidden";
 const headerThemeClass = "header_theme_bright";
 
 function Header({ signUser }) {
-  const brightTheme = useLocation().pathname === '/saved-news';
+  const brightTheme = useLocation().pathname === "/saved-news";
 
   const [scrollPosition, setScrollPosition] = useState(window.scrollY);
   const [headerVisibilityClass, setHeaderVisibilityClass] = useState("");
@@ -41,7 +41,7 @@ function Header({ signUser }) {
     return () => {
       window.removeEventListener("scroll", onScroll, { passive: true });
       window.removeEventListener("resize", onResize);
-    }
+    };
   }, [headerVisibilityClass]);
 
   return (

@@ -1,8 +1,8 @@
-import { useState } from 'react';
-import NewsCardList from '../NewsCardList/NewsCardList';
-import SaveArticleButton from '../SaveArticleButton/SaveArticleButton';
+import { useState } from "react";
+import NewsCardList from "../NewsCardList/NewsCardList";
+import SaveArticleButton from "../SaveArticleButton/SaveArticleButton";
 
-import './SearchResults.css';
+import "./SearchResults.css";
 
 function SearchResults({ cards }) {
   const [cardList, setCardList] = useState(cards.slice(0, 3));

@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { useState, useEffect } from "react";
+import { Routes, Route } from "react-router-dom";
 import Header from "../Header/Header";
 import Main from "../Main/Main";
 import SavedNews from "../SavedNews/SavedNews";
@@ -9,7 +9,7 @@ import "./App.css";
 
 function App() {
   const [isUserPopupOpen, setIsUserPopupOpen] = useState(false);
-  function closeUserPopup(){
+  function closeUserPopup() {
     setIsUserPopupOpen(false);
   }
   function openUserPopup() {
@@ -17,10 +17,10 @@ function App() {
   }
   useEffect(() => {
     const handleEsc = (e) => {
-      if(e.key === 'Escape') closeUserPopup();
+      if (e.key === "Escape") closeUserPopup();
     };
-    if(isUserPopupOpen) window.addEventListener('keydown', handleEsc);
-    return () => window.removeEventListener('keydown', handleEsc);
+    if (isUserPopupOpen) window.addEventListener("keydown", handleEsc);
+    return () => window.removeEventListener("keydown", handleEsc);
   }, [isUserPopupOpen]);
 
   return (

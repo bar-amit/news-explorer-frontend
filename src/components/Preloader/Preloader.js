@@ -1,9 +1,7 @@
-import './Preloader.css';
+import "./Preloader.css";
 
-function Preloader(){
-    return (
-    <i class="circle-preloader"></i>
-    );
+function Preloader() {
+  return <i class="circle-preloader"></i>;
 }
 
 export default Preloader;
