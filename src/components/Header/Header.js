@@ -1,6 +1,9 @@
 import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
+import MobileMenu from "../MobileMenu/MobileMenu";
 import Navigation from "../Navigation/Navigation";
+import openMenuButton from "../../images/header__mobile-menu_open.svg";
+import closeMenuButton from "../../images/header__mobile-menu_close.svg";
 import './Header.css';
 
 const hiddenHeaderClass = 'header_hidden';
@@ -12,23 +15,35 @@ function Header({ signUser }) {
   const [scrollPosition, setScrollPosition] = useState(window.scrollY);
   const [headerVisibilityClass, setHeaderVisibilityClass] = useState("");
 
-  function onScroll() {
-    const currentPosition = window.scrollY;
-    setScrollPosition(currentPosition);
-    if (!this.prevScroll) this.prevScroll = currentPosition;
-    else if (currentPosition < this.prevScroll) {
-      setHeaderVisibilityClass("");
-    } else if (headerVisibilityClass === "") {
-      setHeaderVisibilityClass(hiddenHeaderClass);
-    }
-    this.prevScroll = currentPosition;
-  }
+  const [innerWidth, setInnerWidth] = useState(window.innerWidth);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
 
   useEffect(() => {
-    window.removeEventListener("scroll", onScroll);
+    function onResize() {
+      setInnerWidth(window.innerWidth);
+    }
+
+    function onScroll() {
+      const currentPosition = window.scrollY;
+      setScrollPosition(currentPosition);
+      if (!this.prevScroll) this.prevScroll = currentPosition;
+      else if (currentPosition < this.prevScroll) {
+        setHeaderVisibilityClass("");
+      } else if (headerVisibilityClass === "") {
+        setHeaderVisibilityClass(hiddenHeaderClass);
+      }
+      this.prevScroll = currentPosition;
+    }
+
     window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, [onScroll]);
+    window.addEventListener("resize", onResize);
+    return () => {
+      window.removeEventListener("scroll", onScroll, { passive: true });
+      window.removeEventListener("resize", onResize);
+    }
+  }, [headerVisibilityClass]);
 
   return (
     <header
@@ -39,7 +54,27 @@ function Header({ signUser }) {
       }`}
     >
       <h1 className="header__title">NewsExplorer</h1>
-      <Navigation signUser={signUser} />
+      {innerWidth > 458 ? (
+        <Navigation signUser={signUser} />
+      ) : (
+        <button
+          className="header__menu-button"
+          type="button"
+          onClick={toggleMobileMenu}
+        >
+          {isMobileMenuOpen ? (
+            <img src={closeMenuButton} alt="close menu" />
+          ) : (
+            <img src={openMenuButton} alt="open menu" />
+          )}
+        </button>
+      )}
+      <MobileMenu
+        isOpen={isMobileMenuOpen}
+        isBrightTheme={brightTheme}
+        signUser={signUser}
+        closeMenu={toggleMobileMenu}
+      />
     </header>
   );
 }
