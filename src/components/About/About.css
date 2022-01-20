@@ -56,3 +56,26 @@
         line-height: 40px;
     }
 }
+
+@media screen and (max-width: 558px) {
+    .about {
+        padding: 32px 16px 128px 16px;
+        flex-direction: column;
+    }
+
+    .about__column {
+        max-width: auto;
+        width: 100%;
+        margin: 0;
+    }
+
+    .about__image {
+        height: 272px;
+        margin: auto;
+        margin-bottom: 24px;
+    }
+
+    .about__text:last-child {
+        margin: 0;
+    }
+}
