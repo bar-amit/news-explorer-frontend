@@ -52,3 +52,30 @@
         width: 290px;
     }
 }
+
+@media screen and (max-width: 458px) {
+    .search__form {
+        border: 0;
+        background: none;
+        max-width: none;
+        height: fit-content;
+        width: 100%;
+        margin: 0;
+        flex-direction: column;
+    }
+
+    .search__input {
+        border: 1px solid #D1D2D6;
+        border-radius: 100px;
+        margin: 0;
+        margin-bottom: 16px;
+        padding: 0 16px;
+        height: 56px;
+        width: calc(100% - 32px);
+    }
+
+    .search__button {
+        height: 56px;
+        width: 100%;
+    }
+}
