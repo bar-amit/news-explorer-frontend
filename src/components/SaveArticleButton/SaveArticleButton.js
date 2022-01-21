@@ -17,7 +17,7 @@ function SaveArticleButton() {
           className="news-card__bookmark"
           d="M6.38218 12.7137L1 16.9425V1L13 1V16.9425L7.61782 12.7137L7 12.2283L6.38218 12.7137Z"
           stroke="#B6BCBF"
-          stroke-width="2"
+          strokeWidth="2"
         />
       </svg>
     </button>

@@ -11,7 +11,7 @@ function PopupWithForm({ isOpen, close }) {
 
   return (
     <Popup isOpen={isOpen} close={close}>
-      <form className="user-form" validate>
+      <form className="user-form" validate="true">
         {isNewUser ? (
           <>
             <h3 className="user-form__title">Sign up</h3>
