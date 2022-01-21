@@ -15,7 +15,7 @@ function App() {
   function closeMessagePopup() {
     setIsMessagePopupOpen(false);
   }
-  function openMessagePopup(status=false) {
+  function openMessagePopup(status = false) {
     setIsSuccesful(status);
     setIsMessagePopupOpen(true);
   }
@@ -34,7 +34,7 @@ function App() {
       if (e.key === "Escape") {
         closeMessagePopup();
         closeUserPopup();
-      };
+      }
     };
     if (isUserPopupOpen) window.addEventListener("keydown", handleEsc);
     return () => window.removeEventListener("keydown", handleEsc);
