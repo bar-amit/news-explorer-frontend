@@ -14,6 +14,7 @@ function Popup({ children, isOpen, close }) {
       <div className="popup__container">
         <button className="popup__button" type="button" onClick={close}>
           <svg
+            className="popup__close-button"
             width="24"
             height="24"
             viewBox="0 0 24 24"

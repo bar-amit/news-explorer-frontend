@@ -41,3 +41,25 @@
 .popup__button:hover {
   opacity: 0.5;
 }
+
+@media screen and (max-width: 570px) {
+  .popup__close-button {
+    height: 16px;
+    width: 16px;
+  }
+
+  .popup__button {
+    top: -34px;
+    right: 20px;
+  }
+}
+
+@media screen and (max-width: 458px) {
+  .popup__container {
+    position: absolute;
+    top: 56px;
+    width: calc(100vw - 2 * 16px);
+    height: calc(100vh - 56px);
+    padding: 0 16px;
+  }
+}

@@ -115,3 +115,14 @@
   text-decoration: underline;
   opacity: 0.5;
 }
+
+@media screen and (max-width: 458px) {
+  .user-form__title {
+    margin-top: 16px;
+    margin-bottom: 18px;
+  }
+
+  .user-form__label:last-of-type {
+    margin-bottom: 23px;
+  }
+}
