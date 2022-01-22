@@ -9,9 +9,9 @@ function Footer() {
   const scrollHome = () => window.scrollTo(0);
   return (
     <footer className="footer">
-      <span className="footer__copyrights">
+      <small className="footer__copyrights">
         © 2021 Supersite, Powered by News API
-      </span>
+      </small>
       <ul className="footer__link-list">
         <li>
           <Link className="footer__link" to="/" onClick={scrollHome}>
@@ -24,8 +24,12 @@ function Footer() {
           </a>
         </li>
         <li>
-          <img className="footer__icon" src={githubIcon} />
-          <img className="footer__icon" src={facebookIcon} />
+          <a className="footer__icon">
+            <img src={githubIcon} />
+          </a>
+          <a className="footer__icon">
+            <img src={facebookIcon} />
+          </a>
         </li>
       </ul>
     </footer>
