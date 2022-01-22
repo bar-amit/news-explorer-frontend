@@ -22,11 +22,6 @@
   text-align: center;
   text-decoration: none;
   white-space: nowrap;
-  transition: opacity 0.4s ease-out;
-}
-
-.navigation__link:hover {
-  opacity: 0.7;
 }
 
 .navigation__active-link {
