@@ -97,12 +97,7 @@
   z-index: 700;
 }
 
-@media screen and (max-width: 1440px) {
-  .news-card__button {
-    top: 8px;
-    right: 8px;
-  }
-
+@media screen and (max-width: 1400px) {
   .news-card__title {
     font-size: 22px;
     line-height: 24px;
@@ -137,6 +132,13 @@
 
   .news-card__text {
     -webkit-line-clamp: 7;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .news-card__button {
+    top: 8px;
+    right: 8px;
   }
 }
 
