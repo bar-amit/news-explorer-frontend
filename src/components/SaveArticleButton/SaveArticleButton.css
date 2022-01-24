@@ -1,0 +1,46 @@
+.news-card__button_type_save {
+  width: 40px;
+  height: 40px;
+  background-color: white;
+  border: 0;
+  border-radius: 8px;
+  padding: 0;
+  padding-top: 3px;
+  cursor: pointer;
+  transition: transform 0.4s ease;
+}
+
+.news-card__button_type_save:hover {
+  box-shadow: 0 0 5px 1px #eeeff3d5;
+  transform: scale(1.1);
+}
+
+.news-card__button_type_save:hover .news-card__bookmark {
+  stroke: #1a1b22;
+}
+
+.news-card__button_type_save::before {
+  width: 160px;
+  height: 40px;
+  background-color: white;
+  border-radius: 8px;
+  content: "Sign in to save articles";
+  color: black;
+  font-family: "Roboto Medium", sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: -165px;
+  top: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.4s ease;
+}
+
+.news-card__button_type_save:hover::before {
+  visibility: visible;
+  opacity: 1;
+}
