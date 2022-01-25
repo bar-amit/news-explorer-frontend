@@ -1,14 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 const apiURL = "https://api.bar-news-explorer.students.nomoreparties.sbs";
 
-function useAuth() {
-  const [token, setToken] = useState(null);
-
-  useEffect(() => {
-    const newToken = localStorage.getItem("jwt");
-    if (newToken) setToken(newToken);
-  });
+function useAuth({storageToken}) {
+  const [token, setToken] = useState(storageToken);
 
   function handleResponse(res) {
     if (res.ok) return res.json();
@@ -22,6 +17,7 @@ function useAuth() {
     },
     signIn({ email, password }) {
       return this.apiCall({
+        path: '/signin',
         method: "POST",
         data: {
           email,
@@ -37,7 +33,7 @@ function useAuth() {
       localStorage.removeItem("jwt");
     },
     apiCall({ path = "", method = "GET", data }) {
-      if (!token) return Promise.reject({ message: "User not signed in" });
+      if ((!token) && path !== "/signin") return Promise.reject({ message: "User not signed in" });
       const headers = {
         Authorization: `Bearer ${token}`,
         "Content-Type": "application/json",
