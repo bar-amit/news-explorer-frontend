@@ -7,7 +7,7 @@ function useAuth({storageToken}) {
 
   function handleResponse(res) {
     if (res.ok) return res.json();
-    return Promise.reject(`error: ${res.status}, ${res.statusText}`);
+    return Promise.reject(res);
   }
 
 
@@ -30,10 +30,12 @@ function useAuth({storageToken}) {
       });
     },
     signOut() {
+      setToken("");
       localStorage.removeItem("jwt");
     },
     apiCall({ path = "", method = "GET", data }) {
-      if ((!token) && path !== "/signin") return Promise.reject({ message: "User not signed in" });
+      if (!token && path !== "/signin" && path !== "/signup")
+        return Promise.reject({ message: "User not signed in" });
       const headers = {
         Authorization: `Bearer ${token}`,
         "Content-Type": "application/json",
