@@ -1,4 +1,5 @@
 import { useState } from "react";
+import KeywordContext from "../../contexts/KeywordContext/KeywordContext";
 import SearchResults from "../SearchResults/SearchResults";
 import About from "../About/About";
 import Preloader from "../Preloader/Preloader";
@@ -27,17 +28,23 @@ function Main() {
 
   return (
     <main className="main">
-      <Search searchFunction={onSearch} />
-      {showError ? (
-        <div className="search-error">
-          <h2 className="search-error__title">Couldn't find articles</h2>
-        </div>
-      ) : cards.length === 0 ? (
-        runPreloader ? <Preloader /> : (enableNotFound && <NotFound />)
-      ) : (
-        <SearchResults cards={cards} />
-      )}
-      <About />
+      <KeywordContext.Provider value={lastKeyword}>
+        <Search searchFunction={onSearch} />
+        {showError ? (
+          <div className="search-error">
+            <h2 className="search-error__title">Couldn't find articles</h2>
+          </div>
+        ) : cards.length === 0 ? (
+          runPreloader ? (
+            <Preloader />
+          ) : (
+            enableNotFound && <NotFound />
+          )
+        ) : (
+          <SearchResults cards={cards} />
+        )}
+        <About />
+      </KeywordContext.Provider>
     </main>
   );
 }

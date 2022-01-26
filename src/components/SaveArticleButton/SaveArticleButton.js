@@ -1,10 +1,21 @@
+import { useContext } from "react";
+import UserContext from "../../contexts/UserContext/UserContext";
+import KeywordContext from "../../contexts/KeywordContext/KeywordContext";
 import "./SaveArticleButton.css";
 
-function SaveArticleButton() {
+function SaveArticleButton({article}) {
+  const keyword = useContext(KeywordContext);
+  const {Api} = useContext(UserContext);
+
+  function saveArticle(){
+    Api.saveArticle({keyword, ...article});
+  }
+
   return (
     <button
       className="news-card__button news-card__button_type_save"
       type="button"
+      onClick={saveArticle}
     >
       <svg
         width="14"

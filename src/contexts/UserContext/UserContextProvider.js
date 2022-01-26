@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import useAuth from "../utils/useAuth";
+import useAuth from "../../utils/useAuth";
 
 import UserContext from "./UserContext";
 
@@ -13,11 +13,20 @@ function UserContextProvider({ children }) {
     signIn({ email, password }) {
       return auth.signIn({ email, password }).then((userData) => {
         if (userData) setUser(userData);
+        this.getArticles();
       });
     },
     signOut() {
       auth.signOut();
       setUser(null);
+      setArticles([]);
+    },
+    signUp({email, password, name}){
+      return auth.apiCall({
+        path: "/signup",
+        method: "POST",
+        data: { email, password, name },
+      });
     },
     getArticles() {
       return auth.apiCall({ path: "/articles" }).then((data) => {
@@ -52,12 +61,10 @@ function UserContextProvider({ children }) {
   };
 
   useEffect(() => {
-    if (!localStorage.getItem("jwt"))
-      auth.signIn({ email: "bar@mail.com", password: "123456" });
-    else if (!user)
-      auth.checkToken().then((userData) => {
-        if (userData) setUser(userData);
-      });
+    if (!user)
+    auth.checkToken().then((userData) => {
+      if (userData) setUser(userData);
+    });
   }, [auth, user]);
 
   const value = { user, articles, Api };

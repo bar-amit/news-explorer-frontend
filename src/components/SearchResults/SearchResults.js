@@ -22,7 +22,7 @@ function SearchResults({ cards }) {
   return (
     <section className="search-results">
       <h3 className="search-results__title">Search results</h3>
-      <NewsCardList data={cardList} buttons={<SaveArticleButton />} />
+      <NewsCardList data={cardList} button={SaveArticleButton} />
       <button
         className="search-results__button"
         type="button"

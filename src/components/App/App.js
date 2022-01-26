@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
-import UserContextProvider from "../../contexts/UserContextProvider";
+import UserContextProvider from "../../contexts/UserContext/UserContextProvider";
 import Header from "../Header/Header";
 import Main from "../Main/Main";
 import SavedNews from "../SavedNews/SavedNews";
