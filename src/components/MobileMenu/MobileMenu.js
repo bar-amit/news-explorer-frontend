@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import UserContext from "../../contexts/UserContext";
+import UserContext from "../../contexts/UserContext/UserContext";
 import { Link } from "react-router-dom";
 import Logout from "../Logout/Logout";
 import "./MobileMenu.css";

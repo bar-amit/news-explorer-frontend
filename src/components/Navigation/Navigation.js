@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { Link, useLocation } from "react-router-dom";
-import UserContext from "../../contexts/UserContext";
+import UserContext from "../../contexts/UserContext/UserContext";
 import Logout from "../Logout/Logout";
 
 import "./Navigation.css";
