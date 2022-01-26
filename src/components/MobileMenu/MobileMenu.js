@@ -1,8 +1,12 @@
+import { useContext } from "react";
+import UserContext from "../../contexts/UserContext";
 import { Link } from "react-router-dom";
-
+import Logout from "../Logout/Logout";
 import "./MobileMenu.css";
 
 function MobileMenu({ isOpen, isBrightTheme, signUser, closeMenu }) {
+  const { user, Api } = useContext(UserContext);
+
   function handleSignInClick(e) {
     e.stopPropagation();
     signUser();
@@ -28,17 +32,29 @@ function MobileMenu({ isOpen, isBrightTheme, signUser, closeMenu }) {
                 Home
               </Link>
             </li>
-            <li className="mobile-menu__list-item" onClick={closeMenu}>
-              <Link to="/saved-news" className="mobile-menu__link">
-                Saved articles
-              </Link>
-            </li>
-            <li
-              className="mobile-menu__list-item mobile-menu__button"
-              onClick={handleSignInClick}
-            >
-              Sign in
-            </li>
+            {user && (
+              <li className="mobile-menu__list-item" onClick={closeMenu}>
+                <Link to="/saved-news" className="mobile-menu__link">
+                  Saved articles
+                </Link>
+              </li>
+            )}
+            {user ? (
+              <li
+                className="mobile-menu__list-item mobile-menu__button"
+                onClick={Api.signOut}
+              >
+                {user.name}
+                <Logout />
+              </li>
+            ) : (
+              <li
+                className="mobile-menu__list-item mobile-menu__button"
+                onClick={handleSignInClick}
+              >
+                Sign in
+              </li>
+            )}
           </ul>
         </nav>
       </div>
