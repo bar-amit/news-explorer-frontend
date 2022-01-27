@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useContext, useEffect } from "react";
+import UserContext from "../../contexts/UserContext/UserContext";
 import KeywordContext from "../../contexts/KeywordContext/KeywordContext";
 import SearchResults from "../SearchResults/SearchResults";
 import About from "../About/About";
@@ -10,6 +11,8 @@ import useSearch from "../../utils/useSearch";
 import "./Main.css";
 
 function Main() {
+  const { Api } = useContext(UserContext);
+
   const [runPreloader, setRunPreloader] = useState(false);
   const [showError, setShowError] = useState(false);
   const [enableNotFound, setEnableNotFound] = useState(false);
@@ -26,13 +29,21 @@ function Main() {
       .catch(err => setShowError(true));
   }
 
+  useEffect(() => {
+    Api.getArticles();
+  });
+
   return (
     <main className="main">
       <KeywordContext.Provider value={lastKeyword}>
         <Search searchFunction={onSearch} />
         {showError ? (
           <div className="search-error">
-            <h2 className="search-error__title">Couldn't find articles</h2>
+            <h2 className="search-error__title">
+              Sorry, something went wrong during the
+              request. There may be a connection issue or the server may be
+              down. Please try again later.
+            </h2>
           </div>
         ) : cards.length === 0 ? (
           runPreloader ? (
