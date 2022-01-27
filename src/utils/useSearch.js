@@ -22,6 +22,7 @@ function useSearch() {
               reject({ message: "bad query" })
             );
 
+        setResults([]);
         const url = `${baseURL}q=${query}&from=${dateFrom}&apiKey=${apiKey}&pageSize=${pageSize}`;
         let searchResults;
         
