@@ -16,6 +16,7 @@ function SaveArticleButton({article}) {
   }
 
   function handleClick(){
+    if(!user) return;
     if(articles.some(a => a.title === article.title)) deleteArticle();
     else saveArticle();
   }
