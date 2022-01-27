@@ -19,7 +19,17 @@
   stroke: #1a1b22;
 }
 
-.news-card__button_type_save::before {
+.news-card__bookmark_active {
+  stroke: #2F71E5;
+  fill: #2F71E5;
+}
+
+.news-card__button_type_save:hover .news-card__bookmark_active {
+  stroke: none;
+  fill: #2f72e57c;
+}
+
+.news-card__button_type_no-user::before {
   width: 160px;
   height: 40px;
   background-color: white;
@@ -40,7 +50,7 @@
   transition: all 0.4s ease;
 }
 
-.news-card__button_type_save:hover::before {
+.news-card__button_type_no-user:hover::before {
   visibility: visible;
   opacity: 1;
 }
