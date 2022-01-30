@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import UserContextProvider from "../../contexts/UserContext/UserContextProvider";
+import useSearch from "../../utils/useSearch";
 import ProtectedRoute from "../ProtectedRout/ProtectedRoute";
 import Header from "../Header/Header";
 import Main from "../Main/Main";
@@ -31,6 +32,9 @@ function App() {
     setIsUserPopupOpen(true);
   }
 
+  /* Search */
+  const search = useSearch();
+
   useEffect(() => {
     const handleEsc = (e) => {
       if (e.key === "Escape") {
@@ -47,7 +51,7 @@ function App() {
       <UserContextProvider>
         <Header signUser={openUserPopup} />
         <Routes>
-          <Route path="/" element={<Main />} />
+          <Route path="/" element={<Main search={search} />} />
           <Route
             path="saved-news"
             element={<ProtectedRoute element={<SavedNews />} />}

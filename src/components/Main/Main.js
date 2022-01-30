@@ -6,19 +6,18 @@ import About from "../About/About";
 import Preloader from "../Preloader/Preloader";
 import NotFound from "../NotFound/NotFound";
 import Search from "../Search/Search";
-import useSearch from "../../utils/useSearch";
 
 import "./Main.css";
 
-function Main() {
+function Main({ search: [cards, lastKeyword, searchNews] }) {
   const { Api } = useContext(UserContext);
 
   const [runPreloader, setRunPreloader] = useState(false);
   const [showError, setShowError] = useState(false);
   const [enableNotFound, setEnableNotFound] = useState(false);
-  const [cards, lastKeyword, searchNews] = useSearch();
+  
 
-  function onSearch(query){
+  function onSearch(query) {
     setShowError(false);
     setRunPreloader(true);
     searchNews(query)
@@ -26,7 +25,7 @@ function Main() {
         setRunPreloader(false);
         setEnableNotFound(true);
       })
-      .catch(err => setShowError(true));
+      .catch((err) => setShowError(true));
   }
 
   useEffect(() => {
@@ -40,9 +39,9 @@ function Main() {
         {showError ? (
           <div className="search-error">
             <h2 className="search-error__title">
-              Sorry, something went wrong during the
-              request. There may be a connection issue or the server may be
-              down. Please try again later.
+              Sorry, something went wrong during the request. There may be a
+              connection issue or the server may be down. Please try again
+              later.
             </h2>
           </div>
         ) : cards.length === 0 ? (
