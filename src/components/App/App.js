@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import UserContextProvider from "../../contexts/UserContext/UserContextProvider";
+import ProtectedRoute from "../ProtectedRout/ProtectedRoute";
 import Header from "../Header/Header";
 import Main from "../Main/Main";
 import SavedNews from "../SavedNews/SavedNews";
@@ -47,7 +48,10 @@ function App() {
         <Header signUser={openUserPopup} />
         <Routes>
           <Route path="/" element={<Main />} />
-          <Route path="saved-news" element={<SavedNews />} />
+          <Route
+            path="saved-news"
+            element={<ProtectedRoute element={<SavedNews />} />}
+          />
           <Route path="*" element={<div>Not Found</div>} />
         </Routes>
         <Footer />
