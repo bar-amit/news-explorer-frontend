@@ -12,24 +12,27 @@ function SavedNews() {
 
   const [keywordLine, setKeywordLine] = useState(getKeywords(articles));
 
-  function getKeywords(articles){
+  function getKeywords(articles) {
     let keywords = {};
 
-    articles.forEach(({keyword}) => {
-      keywords[keyword] = keywords[keyword] + 1 || 1; 
+    articles.forEach(({ keyword }) => {
+      keywords[keyword] = keywords[keyword] + 1 || 1;
     });
 
-    let orderdKeywords = Object.entries(keywords).sort((k1, k2) => k1[1] < k2[1] ? 1 : -1).map(k => k[0]);
+    let orderdKeywords = Object.entries(keywords)
+      .sort((k1, k2) => (k1[1] < k2[1] ? 1 : -1))
+      .map((k) => k[0]);
     let amount = orderdKeywords.length;
 
-    if(amount > 3) return `${orderdKeywords[0]}, ${orderdKeywords[1]}, and ${
-      amount - 2
-    } other`;
-    return orderdKeywords.join(', ');
+    if (amount > 3)
+      return `${orderdKeywords[0]}, ${orderdKeywords[1]}, and ${
+        amount - 2
+      } other`;
+    return orderdKeywords.join(", ");
   }
 
   useEffect(() => {
-    Api.getArticles().catch(e => {});
+    Api.getArticles().catch((e) => {});
   });
 
   useEffect(() => {

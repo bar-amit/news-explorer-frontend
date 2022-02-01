@@ -15,7 +15,11 @@ function PopupWithForm({ isOpen, close, openMessage }) {
     <Popup isOpen={isOpen} close={close}>
       <form className="user-form" validate="true">
         {isNewUser ? (
-          <SignUpForm switchForm={switchForm} close={close} openMessage={openMessage} />
+          <SignUpForm
+            switchForm={switchForm}
+            close={close}
+            openMessage={openMessage}
+          />
         ) : (
           <SignInForm switchForm={switchForm} close={close} />
         )}

@@ -4,7 +4,7 @@ import useAuth from "../../utils/useAuth";
 import UserContext from "./UserContext";
 
 function UserContextProvider({ children }) {
-  const auth = useAuth({storageToken: localStorage.getItem("jwt") || null});
+  const auth = useAuth({ storageToken: localStorage.getItem("jwt") || null });
 
   const [user, setUser] = useState(null);
   const [articles, setArticles] = useState([]);
@@ -21,7 +21,7 @@ function UserContextProvider({ children }) {
       setUser(null);
       setArticles([]);
     },
-    signUp({email, password, name}){
+    signUp({ email, password, name }) {
       return auth.apiCall({
         path: "/signup",
         method: "POST",
@@ -35,20 +35,21 @@ function UserContextProvider({ children }) {
       });
     },
     saveArticle({ keyword, title, text, date, source, link, image }) {
-      return auth.apiCall({
-        path: "/articles",
-        method: "POST",
-        data: {
-          keyword,
-          title,
-          text,
-          date,
-          source,
-          link,
-          image,
-        },
-      })
-      .then(article => setArticles([article, ...articles]));
+      return auth
+        .apiCall({
+          path: "/articles",
+          method: "POST",
+          data: {
+            keyword,
+            title,
+            text,
+            date,
+            source,
+            link,
+            image,
+          },
+        })
+        .then((article) => setArticles([article, ...articles]));
     },
     deleteArticle(id) {
       return auth
@@ -62,9 +63,12 @@ function UserContextProvider({ children }) {
 
   useEffect(() => {
     if (!user && auth.isSignedin === null)
-    auth.checkToken({token: localStorage.getItem("jwt")}).then((userData) => {
-      if (userData) setUser(userData);
-    }).catch(e => {});
+      auth
+        .checkToken({ token: localStorage.getItem("jwt") })
+        .then((userData) => {
+          if (userData) setUser(userData);
+        })
+        .catch((e) => {});
   }, [auth, user]);
 
   const value = { user, articles, Api };

@@ -1,6 +1,6 @@
 import "./SavedNewsHeader.css";
 
-function SavedNewsHeader({line, amount}) {
+function SavedNewsHeader({ line, amount }) {
   return (
     <section className="saved-news__header">
       <h2 className="saved-news__title">Saved articles</h2>

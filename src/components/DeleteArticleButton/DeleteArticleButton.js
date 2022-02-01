@@ -2,12 +2,12 @@ import { useContext } from "react";
 import UserContext from "../../contexts/UserContext/UserContext";
 import "./DeleteArticleButton.css";
 
-function DeleteArticleButton({article}) {
-  const {Api} = useContext(UserContext);
+function DeleteArticleButton({ article }) {
+  const { Api } = useContext(UserContext);
 
-  const {_id: id} = article;
+  const { _id: id } = article;
 
-  function deleteArticle(){
+  function deleteArticle() {
     Api.deleteArticle(id);
   }
 

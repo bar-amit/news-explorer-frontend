@@ -6,7 +6,7 @@ import Logout from "../Logout/Logout";
 import "./Navigation.css";
 
 function Navigation({ signUser }) {
-  const {user, Api} = useContext(UserContext);
+  const { user, Api } = useContext(UserContext);
   const location = useLocation();
 
   return (

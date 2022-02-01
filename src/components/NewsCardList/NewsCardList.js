@@ -15,10 +15,10 @@ const months = [
   "September",
   "October",
   "November",
-  "December"
+  "December",
 ];
 
-function formatDate(publishedAt){
+function formatDate(publishedAt) {
   const date = new Date(publishedAt);
   return `${months[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`;
 }
@@ -62,7 +62,6 @@ function NewsCardList({ data, button }) {
 }
 
 export default NewsCardList;
-
 
 // {
 //   "source": {

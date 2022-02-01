@@ -20,8 +20,8 @@
 }
 
 .news-card__bookmark_active {
-  stroke: #2F71E5;
-  fill: #2F71E5;
+  stroke: #2f71e5;
+  fill: #2f71e5;
 }
 
 .news-card__button_type_save:hover .news-card__bookmark_active {

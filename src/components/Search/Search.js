@@ -1,7 +1,7 @@
 import SearchForm from "../SearchForm/SearchForm";
 import "./Search.css";
 
-function Search({searchFunction}) {
+function Search({ searchFunction }) {
   return (
     <section className="search">
       <h2 className="search__title">What's going on in the world?</h2>

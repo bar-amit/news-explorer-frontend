@@ -15,7 +15,6 @@ function Main({ search: [cards, lastKeyword, searchNews] }) {
   const [runPreloader, setRunPreloader] = useState(false);
   const [showError, setShowError] = useState(false);
   const [enableNotFound, setEnableNotFound] = useState(false);
-  
 
   function onSearch(query) {
     setShowError(false);
@@ -29,7 +28,7 @@ function Main({ search: [cards, lastKeyword, searchNews] }) {
   }
 
   useEffect(() => {
-    Api.getArticles().catch(e => {});
+    Api.getArticles().catch((e) => {});
   });
 
   return (

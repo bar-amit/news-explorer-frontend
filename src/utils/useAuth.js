@@ -2,7 +2,7 @@ import { useState } from "react";
 
 const apiURL = "https://api.bar-news-explorer.students.nomoreparties.sbs";
 
-function useAuth({storageToken}) {
+function useAuth({ storageToken }) {
   const [token, setToken] = useState(storageToken);
   const [isSignedin, setIsSignedin] = useState(null);
 
@@ -11,14 +11,13 @@ function useAuth({storageToken}) {
     return Promise.reject(res);
   }
 
-
   return {
     isSignedin,
-    checkToken({token}) {
-      if(!token) {
+    checkToken({ token }) {
+      if (!token) {
         setIsSignedin(false);
-        return Promise.reject({message: 'No token'});
-      };
+        return Promise.reject({ message: "No token" });
+      }
       const headers = {
         Authorization: `Bearer ${token}`,
         "Content-Type": "application/json",
@@ -30,7 +29,7 @@ function useAuth({storageToken}) {
     },
     signIn({ email, password }) {
       return this.apiCall({
-        path: '/signin',
+        path: "/signin",
         method: "POST",
         data: {
           email,

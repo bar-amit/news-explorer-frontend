@@ -23,13 +23,15 @@ function SearchResults({ cards }) {
     <section className="search-results">
       <h3 className="search-results__title">Search results</h3>
       <NewsCardList data={cardList} button={SaveArticleButton} />
-      {cards.length - cardList.length > 0 && <button
-        className="search-results__button"
-        type="button"
-        onClick={getCards}
-      >
-        Show more
-      </button>}
+      {cards.length - cardList.length > 0 && (
+        <button
+          className="search-results__button"
+          type="button"
+          onClick={getCards}
+        >
+          Show more
+        </button>
+      )}
     </section>
   );
 }

@@ -10,22 +10,22 @@ function SignInForm({ switchForm, close }) {
     { email: emailError, password: passwordError },
     isValid,
     onChange,
-  ] = useForm({inputs: ["email", "password"]});
+  ] = useForm({ inputs: ["email", "password"] });
 
   const [buttonText, setButtonText] = useState("Sign in");
   const [formError, setFormError] = useState("");
 
-  function handleSubmit(e){
+  function handleSubmit(e) {
     e.preventDefault();
 
     setButtonText("Loading...");
     Api.signIn({ email, password })
-    .then(() => close())
-    .catch(err => {
-      if(err.status === 401) setFormError("Bad email and/or password");
-      else setFormError("An error occured on the server.");
-    })
-    .finally(() => setButtonText("Sign in"));
+      .then(() => close())
+      .catch((err) => {
+        if (err.status === 401) setFormError("Bad email and/or password");
+        else setFormError("An error occured on the server.");
+      })
+      .finally(() => setButtonText("Sign in"));
   }
 
   return (
