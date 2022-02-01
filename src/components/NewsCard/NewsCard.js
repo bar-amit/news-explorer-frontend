@@ -7,7 +7,12 @@ function NewsCard({ image, title, link, text, source, date, children }) {
       <p className="news-card__date">{date}</p>
       <h4 className="news-card__title">{title}</h4>
       <p className="news-card__text">{text}</p>
-      <a className="news-card__source" href={link} target="_blank" rel="noreferrer">
+      <a
+        className="news-card__source"
+        href={link}
+        target="_blank"
+        rel="noreferrer"
+      >
         {source}
       </a>
       {children}

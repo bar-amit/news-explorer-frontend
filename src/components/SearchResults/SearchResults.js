@@ -22,7 +22,11 @@ function SearchResults({ cards, register }) {
   return (
     <section className="search-results">
       <h3 className="search-results__title">Search results</h3>
-      <NewsCardList data={cardList} button={SaveArticleButton} register={register} />
+      <NewsCardList
+        data={cardList}
+        button={SaveArticleButton}
+        register={register}
+      />
       {cards.length - cardList.length > 0 && (
         <button
           className="search-results__button"

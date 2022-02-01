@@ -53,7 +53,10 @@ function App() {
       <UserContextProvider>
         <Header signUser={openUserPopup} />
         <Routes>
-          <Route path="/" element={<Main search={search} register={openUserPopup} />} />
+          <Route
+            path="/"
+            element={<Main search={search} register={openUserPopup} />}
+          />
           <Route
             path="saved-news"
             element={<ProtectedRoute element={<SavedNews />} />}

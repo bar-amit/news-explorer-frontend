@@ -2,7 +2,7 @@ import Popup from "../Popup/Popup";
 import "./PopupMessage.css";
 
 function PopupMessage({ isOpen, isSuccesful, close, openLogin }) {
-  function handleClick(){
+  function handleClick() {
     openLogin();
     close();
   }
