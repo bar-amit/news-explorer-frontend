@@ -3,6 +3,7 @@ import "./SearchForm.css";
 
 function SearchForm({onSubmit}) {
   const [keyword, setKeyword] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
 
   function onInputChange(e){
     setKeyword(e.target.value);
@@ -11,7 +12,13 @@ function SearchForm({onSubmit}) {
   function onFormSubmit(e){
     e.preventDefault();
 
-    onSubmit(keyword);
+    if (!keyword) setErrorMessage("Please enter a keyword");
+    else if (errorMessage !== "") {
+      setErrorMessage("");
+      onSubmit(keyword);
+    } else {
+      onSubmit(keyword);
+    }
   }
 
   return (
@@ -23,6 +30,7 @@ function SearchForm({onSubmit}) {
         value={keyword}
         onChange={onInputChange}
       ></input>
+      <p className='search__error'>{errorMessage}</p>
       <button className="search__button" type="submit">
         Search
       </button>
