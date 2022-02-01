@@ -24,11 +24,13 @@ function App() {
   }
 
   /* User Popup */
+  const [isRegistered, setIsRegistered] = useState(true);
   const [isUserPopupOpen, setIsUserPopupOpen] = useState(false);
   function closeUserPopup() {
     setIsUserPopupOpen(false);
   }
-  function openUserPopup() {
+  function openUserPopup(registered = false) {
+    setIsRegistered(registered);
     setIsUserPopupOpen(true);
   }
 
@@ -51,7 +53,7 @@ function App() {
       <UserContextProvider>
         <Header signUser={openUserPopup} />
         <Routes>
-          <Route path="/" element={<Main search={search} />} />
+          <Route path="/" element={<Main search={search} register={openUserPopup} />} />
           <Route
             path="saved-news"
             element={<ProtectedRoute element={<SavedNews />} />}
@@ -63,12 +65,14 @@ function App() {
           isOpen={isUserPopupOpen}
           close={closeUserPopup}
           openMessage={openMessagePopup}
+          isRegistered={isRegistered}
+          switchForm={() => setIsRegistered(!isRegistered)}
         />
         <PopupMessage
           isOpen={isMessagePopupOpen}
           close={closeMessagePopup}
           isSuccesful={isSuccesful}
-          openLogin={openUserPopup}
+          openLogin={() => openUserPopup(true)}
         />
       </UserContextProvider>
     </div>

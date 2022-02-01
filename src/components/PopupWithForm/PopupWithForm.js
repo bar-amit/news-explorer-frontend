@@ -1,20 +1,20 @@
-import { useState } from "react";
 import Popup from "../Popup/Popup";
 import SignInForm from "../SignInForm/SignInForm";
 import SignUpForm from "../SignUpForm/SignUpForm";
 
 import "./PopupWithForm.css";
 
-function PopupWithForm({ isOpen, close, openMessage }) {
-  const [isNewUser, setIsNewUser] = useState(false);
-  function switchForm() {
-    setIsNewUser(!isNewUser);
-  }
-
+function PopupWithForm({
+  isOpen,
+  close,
+  openMessage,
+  isRegistered,
+  switchForm,
+}) {
   return (
     <Popup isOpen={isOpen} close={close}>
       <form className="user-form" validate="true">
-        {isNewUser ? (
+        {!isRegistered ? (
           <SignUpForm
             switchForm={switchForm}
             close={close}

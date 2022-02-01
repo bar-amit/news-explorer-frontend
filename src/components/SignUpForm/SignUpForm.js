@@ -22,7 +22,7 @@ function SignUpForm({ switchForm, close, openMessage }) {
     Api.signUp({ email, password, name })
       .then((res) => {
         close();
-        openMessage(res.isOk);
+        openMessage(res.email === email);
       })
       .catch((err) => {
         if (err.status === 409) setFormError("Email already exists");

@@ -9,7 +9,7 @@ import Search from "../Search/Search";
 
 import "./Main.css";
 
-function Main({ search: [cards, lastKeyword, searchNews] }) {
+function Main({ search: [cards, lastKeyword, searchNews], register }) {
   const { Api } = useContext(UserContext);
 
   const [runPreloader, setRunPreloader] = useState(false);
@@ -50,7 +50,7 @@ function Main({ search: [cards, lastKeyword, searchNews] }) {
             enableNotFound && <NotFound />
           )
         ) : (
-          <SearchResults cards={cards} />
+          <SearchResults cards={cards} register={register} />
         )}
         <About />
       </KeywordContext.Provider>

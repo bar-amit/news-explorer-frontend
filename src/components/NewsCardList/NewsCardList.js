@@ -23,7 +23,7 @@ function formatDate(publishedAt) {
   return `${months[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`;
 }
 
-function NewsCardList({ data, button }) {
+function NewsCardList({ data, button, register }) {
   let cardData = [];
   if (data.length > 0 && !data[0].link)
     cardData = data.map(
@@ -53,7 +53,7 @@ function NewsCardList({ data, button }) {
     <ul className="news-card-list">
       {cardData.map((c, idx) => (
         <NewsCard {...c} key={idx}>
-          <Button article={c} />
+          <Button article={c} register={register} />
           {c.keyword ? <KeywordIcon keyword={c.keyword} /> : ""}
         </NewsCard>
       ))}

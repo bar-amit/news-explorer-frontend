@@ -3,7 +3,7 @@ import UserContext from "../../contexts/UserContext/UserContext";
 import KeywordContext from "../../contexts/KeywordContext/KeywordContext";
 import "./SaveArticleButton.css";
 
-function SaveArticleButton({ article }) {
+function SaveArticleButton({ article, register }) {
   const keyword = useContext(KeywordContext);
   const { Api, user, articles } = useContext(UserContext);
 
@@ -16,8 +16,8 @@ function SaveArticleButton({ article }) {
   }
 
   function handleClick() {
-    if (!user) return;
-    if (articles.some((a) => a.title === article.title)) deleteArticle();
+    if (!user) register(false);
+    else if (articles.some((a) => a.title === article.title)) deleteArticle();
     else saveArticle();
   }
 
