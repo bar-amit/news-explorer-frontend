@@ -15,7 +15,7 @@ function useSearch() {
       ? JSON.parse(localStorage.getItem("search-results"))
       : []
   );
-  const [lastSearchQuery, setLastSearchQuery] = useState("");
+  const [lastSearchQuery, setLastSearchQuery] = useState(localStorage.getItem("lastKeyword") || "");
 
   const dateFrom = getDateFromOneWeekAgo();
   const pageSize = 20;
@@ -42,6 +42,7 @@ function useSearch() {
         "search-results",
         JSON.stringify(searchResults.articles)
       );
+      localStorage.setItem("lastKeyword", query);
       return Promise.resolve({ succeed: true });
     } else {
       setResults([]);
