@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import UserContext from "../../contexts/UserContext/UserContext";
-import { Route, Navigate, useLocation } from "react-router-dom";
+import { Navigate, useLocation } from "react-router-dom";
 
 function ProtectedRoute({ element }) {
   const location = useLocation();
