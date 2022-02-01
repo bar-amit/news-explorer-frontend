@@ -12,8 +12,15 @@ function useAuth({storageToken}) {
 
 
   return {
-    checkToken() {
-      return this.apiCall({ path: "/users/me" });
+    checkToken({token}) {
+      const headers = {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      };
+      return fetch(`${apiURL}/users/me`, {
+        method: "GET",
+        headers,
+      }).then(handleResponse);
     },
     signIn({ email, password }) {
       return this.apiCall({
@@ -26,7 +33,7 @@ function useAuth({storageToken}) {
       }).then(({ token: newToken }) => {
         localStorage.setItem("jwt", newToken);
         setToken(newToken);
-        return this.checkToken();
+        return this.checkToken({ token: newToken });
       });
     },
     signOut() {

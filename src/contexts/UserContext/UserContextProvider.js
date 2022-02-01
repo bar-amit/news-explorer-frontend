@@ -13,7 +13,7 @@ function UserContextProvider({ children }) {
     signIn({ email, password }) {
       return auth.signIn({ email, password }).then((userData) => {
         if (userData) setUser(userData);
-        this.getArticles();
+        return Promise.resolve(true);
       });
     },
     signOut() {
@@ -31,7 +31,7 @@ function UserContextProvider({ children }) {
     getArticles() {
       return auth.apiCall({ path: "/articles" }).then((data) => {
         if (data) setArticles(data);
-        return;
+        return Promise.resolve();
       });
     },
     saveArticle({ keyword, title, text, date, source, link, image }) {
@@ -55,14 +55,14 @@ function UserContextProvider({ children }) {
         .apiCall({ path: `/articles/${id}`, method: "DELETE" })
         .then(() => {
           setArticles(articles.filter(({ _id }) => _id !== id));
-          return;
+          return Promise.resolve();
         });
     },
   };
 
   useEffect(() => {
     if (!user)
-    auth.checkToken().then((userData) => {
+    auth.checkToken({token: localStorage.getItem("jwt")}).then((userData) => {
       if (userData) setUser(userData);
     });
   }, [auth, user]);
