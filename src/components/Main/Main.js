@@ -29,7 +29,7 @@ function Main({ search: [cards, lastKeyword, searchNews] }) {
   }
 
   useEffect(() => {
-    Api.getArticles();
+    Api.getArticles().catch(e => {});
   });
 
   return (

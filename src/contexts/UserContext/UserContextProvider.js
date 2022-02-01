@@ -61,10 +61,10 @@ function UserContextProvider({ children }) {
   };
 
   useEffect(() => {
-    if (!user)
+    if (!user && auth.isSignedin === null)
     auth.checkToken({token: localStorage.getItem("jwt")}).then((userData) => {
       if (userData) setUser(userData);
-    });
+    }).catch(e => {});
   }, [auth, user]);
 
   const value = { user, articles, Api };

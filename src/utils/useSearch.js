@@ -10,7 +10,11 @@ function getDateFromOneWeekAgo(){
 }
 
 function useSearch() {
-    const [results, setResults] = useState([]);
+    const [results, setResults] = useState(
+      localStorage.getItem("search-results")
+        ? JSON.parse(localStorage.getItem("search-results"))
+        : []
+    );
     const [lastSearchQuery, setLastSearchQuery] = useState("");
 
     const dateFrom = getDateFromOneWeekAgo();
@@ -18,9 +22,7 @@ function useSearch() {
     
     async function search(query){
         if(typeof query !== 'string' || query.length === 0)
-            return new Promise((resolve, reject) =>
-              reject({ message: "bad query" })
-            );
+            return Promise.reject({ message: "bad query" });
 
         setResults([]);
         const url = `${baseURL}q=${query}&from=${dateFrom}&apiKey=${apiKey}&pageSize=${pageSize}`;
@@ -31,21 +33,21 @@ function useSearch() {
             searchResults = await res.json();
         }
         catch (e){
-            return new Promise((resolve, reject) =>
-              reject(e)
-            );
+            return Promise.reject(e);
         }
 
         if(searchResults){
             setLastSearchQuery(query);
             setResults(searchResults.articles);
-            return new Promise((resolve) => resolve({ succeed: true }));
+            localStorage.setItem(
+              "search-results",
+              JSON.stringify(searchResults.articles)
+            );
+            return Promise.resolve({ succeed: true });
         }
         else {
             setResults([]);
-            return new Promise((resolve, reject) =>
-              reject({ message: "something went wrong" })
-            );
+            return Promise.reject({ message: "something went wrong" });
         }
     }
 

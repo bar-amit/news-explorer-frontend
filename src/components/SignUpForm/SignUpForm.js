@@ -25,7 +25,6 @@ function SignUpForm({ switchForm, close, openMessage }) {
         openMessage(res.isOk);
       })
       .catch((err) => {
-        console.log(err, typeof err);
         if (err.status === 409) setFormError("Email already exists");
         else setFormError("An error occured on the server.");
       })

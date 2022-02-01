@@ -4,6 +4,7 @@ const apiURL = "https://api.bar-news-explorer.students.nomoreparties.sbs";
 
 function useAuth({storageToken}) {
   const [token, setToken] = useState(storageToken);
+  const [isSignedin, setIsSignedin] = useState(null);
 
   function handleResponse(res) {
     if (res.ok) return res.json();
@@ -12,7 +13,12 @@ function useAuth({storageToken}) {
 
 
   return {
+    isSignedin,
     checkToken({token}) {
+      if(!token) {
+        setIsSignedin(false);
+        return Promise.reject({message: 'No token'});
+      };
       const headers = {
         Authorization: `Bearer ${token}`,
         "Content-Type": "application/json",
@@ -33,12 +39,15 @@ function useAuth({storageToken}) {
       }).then(({ token: newToken }) => {
         localStorage.setItem("jwt", newToken);
         setToken(newToken);
+        setIsSignedin(true);
         return this.checkToken({ token: newToken });
       });
     },
     signOut() {
       setToken("");
+      setIsSignedin(false);
       localStorage.removeItem("jwt");
+      localStorage.removeItem("search-results");
     },
     apiCall({ path = "", method = "GET", data }) {
       if (!token && path !== "/signin" && path !== "/signup")

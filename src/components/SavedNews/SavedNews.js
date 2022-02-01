@@ -29,7 +29,7 @@ function SavedNews() {
   }
 
   useEffect(() => {
-    Api.getArticles();
+    Api.getArticles().catch(e => {});
   });
 
   useEffect(() => {
