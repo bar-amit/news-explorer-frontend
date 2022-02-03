@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
-import UserContextProvider from "../../contexts/UserContext/UserContextProvider";
 import useSearch from "../../utils/useSearch";
 import ProtectedRoute from "../ProtectedRout/ProtectedRoute";
 import Header from "../Header/Header";
@@ -50,7 +49,6 @@ function App() {
 
   return (
     <div className="App">
-      <UserContextProvider>
         <Header signUser={openUserPopup} />
         <Routes>
           <Route
@@ -77,7 +75,6 @@ function App() {
           isSuccesful={isSuccesful}
           openLogin={() => openUserPopup(true)}
         />
-      </UserContextProvider>
     </div>
   );
 }
