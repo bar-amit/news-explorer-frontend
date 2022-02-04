@@ -27,8 +27,9 @@ function Header({ signUser }) {
     function onScroll() {
       const currentPosition = window.scrollY;
       setScrollPosition(currentPosition);
-      if (!this.prevScroll) this.prevScroll = currentPosition;
-      else if (currentPosition < this.prevScroll) {
+      if (!this.prevScroll) {
+        this.prevScroll = currentPosition;
+      } else if (currentPosition < this.prevScroll) {
         setHeaderVisibilityClass("");
       } else if (headerVisibilityClass === "") {
         setHeaderVisibilityClass(hiddenHeaderClass);

@@ -46,42 +46,44 @@ function App() {
         closeUserPopup();
       }
     };
-    if (isUserPopupOpen) window.addEventListener("keydown", handleEsc);
+    if (isUserPopupOpen) {
+      window.addEventListener("keydown", handleEsc);
+    }
     return () => window.removeEventListener("keydown", handleEsc);
   }, [isUserPopupOpen]);
 
   useEffect(() => {
-    Api.getArticles().catch(e => {});
-  }, [user])
+    Api.getArticles().catch((e) => {});
+  }, [user]);
 
   return (
     <div className="App">
-        <Header signUser={openUserPopup} />
-        <Routes>
-          <Route
-            path="/"
-            element={<Main search={search} register={openUserPopup} />}
-          />
-          <Route
-            path="saved-news"
-            element={<ProtectedRoute element={<SavedNews />} />}
-          />
-          <Route path="*" element={<div>Not Found</div>} />
-        </Routes>
-        <Footer />
-        <PopupWithForm
-          isOpen={isUserPopupOpen}
-          close={closeUserPopup}
-          openMessage={openMessagePopup}
-          isRegistered={isRegistered}
-          switchForm={() => setIsRegistered(!isRegistered)}
+      <Header signUser={openUserPopup} />
+      <Routes>
+        <Route
+          path="/"
+          element={<Main search={search} register={openUserPopup} />}
         />
-        <PopupMessage
-          isOpen={isMessagePopupOpen}
-          close={closeMessagePopup}
-          isSuccesful={isSuccesful}
-          openLogin={() => openUserPopup(true)}
+        <Route
+          path="saved-news"
+          element={<ProtectedRoute element={<SavedNews />} />}
         />
+        <Route path="*" element={<div>Not Found</div>} />
+      </Routes>
+      <Footer />
+      <PopupWithForm
+        isOpen={isUserPopupOpen}
+        close={closeUserPopup}
+        openMessage={openMessagePopup}
+        isRegistered={isRegistered}
+        switchForm={() => setIsRegistered(!isRegistered)}
+      />
+      <PopupMessage
+        isOpen={isMessagePopupOpen}
+        close={closeMessagePopup}
+        isSuccesful={isSuccesful}
+        openLogin={() => openUserPopup(true)}
+      />
     </div>
   );
 }

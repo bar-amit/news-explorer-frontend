@@ -24,8 +24,11 @@ function SignInForm({ switchForm, close }) {
         close();
       })
       .catch((err) => {
-        if (err.status === 401) setFormError("Bad email and/or password");
-        else setFormError("An error occured on the server.");
+        if (err.status === 401) {
+          setFormError("Bad email and/or password");
+        } else {
+          setFormError("An error occured on the server.");
+        }
       })
       .finally(() => setButtonText("Sign in"));
   }

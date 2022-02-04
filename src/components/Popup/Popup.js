@@ -3,7 +3,9 @@ import "./Popup.css";
 function Popup({ children, isOpen, close }) {
   function overlayClick(e) {
     e.stopPropagation();
-    if (e.target.classList.contains("popup_visible")) close();
+    if (e.target.classList.contains("popup_visible")) {
+      close();
+    }
   }
 
   return (

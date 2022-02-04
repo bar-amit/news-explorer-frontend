@@ -12,8 +12,9 @@ function SearchForm({ onSubmit }) {
   function onFormSubmit(e) {
     e.preventDefault();
 
-    if (!keyword) setErrorMessage("Please enter a keyword");
-    else if (errorMessage !== "") {
+    if (!keyword) {
+      setErrorMessage("Please enter a keyword");
+    } else if (errorMessage !== "") {
       setErrorMessage("");
       onSubmit(keyword);
     } else {

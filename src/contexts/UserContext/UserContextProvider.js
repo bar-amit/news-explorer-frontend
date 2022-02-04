@@ -12,7 +12,9 @@ function UserContextProvider({ children }) {
   const Api = {
     signIn({ email, password }) {
       return auth.signIn({ email, password }).then((userData) => {
-        if (userData) setUser(userData);
+        if (userData) {
+          setUser(userData);
+        }
         return Promise.resolve();
       });
     },
@@ -30,7 +32,9 @@ function UserContextProvider({ children }) {
     },
     getArticles() {
       return auth.apiCall({ path: "/articles" }).then((data) => {
-        if (data) setArticles(data);
+        if (data) {
+          setArticles(data);
+        }
         return Promise.resolve();
       });
     },
@@ -62,13 +66,16 @@ function UserContextProvider({ children }) {
   };
 
   useEffect(() => {
-    if (!user && auth.isSignedin === null)
+    if (!user && auth.isSignedin === null) {
       auth
         .checkToken({ token: localStorage.getItem("jwt") })
         .then((userData) => {
-          if (userData) setUser(userData);
+          if (userData) {
+            setUser(userData);
+          }
         })
         .catch((e) => {});
+    }
   }, [auth, user]);
 
   const value = { user, articles, Api };

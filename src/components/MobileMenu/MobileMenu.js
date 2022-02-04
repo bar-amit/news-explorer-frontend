@@ -14,7 +14,9 @@ function MobileMenu({ isOpen, isBrightTheme, signUser, closeMenu }) {
   }
 
   function handleOverlayClick(e) {
-    if (e.target.classList.contains("mobile-menu")) closeMenu();
+    if (e.target.classList.contains("mobile-menu")) {
+      closeMenu();
+    }
   }
 
   return (

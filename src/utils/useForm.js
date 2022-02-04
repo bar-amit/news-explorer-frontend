@@ -16,8 +16,11 @@ function useForm({ inputs = [] }) {
       ([key, value]) => value !== ""
     );
     const noErrors = Object.entries(e).every(([key, value]) => value === "");
-    if (formIsNotEmpty && noErrors) setIsValid(true);
-    else setIsValid(false);
+    if (formIsNotEmpty && noErrors) {
+      setIsValid(true);
+    } else {
+      setIsValid(false);
+    }
   }
 
   function onChange(e) {

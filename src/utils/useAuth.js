@@ -7,7 +7,9 @@ function useAuth({ storageToken }) {
   const [isSignedin, setIsSignedin] = useState(null);
 
   function handleResponse(res) {
-    if (res.ok) return res.json();
+    if (res.ok) {
+      return res.json();
+    }
     return Promise.reject(res);
   }
 
@@ -49,18 +51,20 @@ function useAuth({ storageToken }) {
       localStorage.removeItem("search-results");
     },
     apiCall({ path = "", method = "GET", data }) {
-      if (!token && path !== "/signin" && path !== "/signup")
+      if (!token && path !== "/signin" && path !== "/signup") {
         return Promise.reject({ message: "User not signed in" });
+      }
       const headers = {
         Authorization: `Bearer ${token}`,
         "Content-Type": "application/json",
       };
-      if (data)
+      if (data) {
         return fetch(`${apiURL}${path}`, {
           method,
           headers,
           body: JSON.stringify(data),
         }).then(handleResponse);
+      }
       return fetch(`${apiURL}${path}`, {
         method,
         headers,

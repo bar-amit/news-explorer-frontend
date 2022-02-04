@@ -6,8 +6,11 @@ function ProtectedRoute({ element }) {
   const location = useLocation();
   const { user } = useContext(UserContext);
 
-  if (!user) return <Navigate to="/" state={{ from: location }} replace />;
-  else return element;
+  if (!user) {
+    return <Navigate to="/" state={{ from: location }} replace />;
+  } else {
+    return element;
+  }
 }
 
 export default ProtectedRoute;

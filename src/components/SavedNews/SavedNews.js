@@ -24,10 +24,11 @@ function SavedNews() {
       .map((k) => k[0]);
     let amount = orderdKeywords.length;
 
-    if (amount > 3)
+    if (amount > 3) {
       return `${orderdKeywords[0]}, ${orderdKeywords[1]}, and ${
         amount - 2
       } other`;
+    }
     return orderdKeywords.join(", ");
   }
 

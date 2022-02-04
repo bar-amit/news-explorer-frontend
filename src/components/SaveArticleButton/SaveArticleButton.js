@@ -16,9 +16,13 @@ function SaveArticleButton({ article, register }) {
   }
 
   function handleClick() {
-    if (!user) register(false);
-    else if (articles.some((a) => a.title === article.title)) deleteArticle();
-    else saveArticle();
+    if (!user) {
+      register(false);
+    } else if (articles.some((a) => a.title === article.title)) {
+      deleteArticle();
+    } else {
+      saveArticle();
+    }
   }
 
   return (

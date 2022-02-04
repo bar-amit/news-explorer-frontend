@@ -25,7 +25,7 @@ function formatDate(publishedAt) {
 
 function NewsCardList({ data, button, register }) {
   let cardData = [];
-  if (data.length > 0 && !data[0].link)
+  if (data.length > 0 && !data[0].link) {
     cardData = data.map(
       ({
         title,
@@ -45,7 +45,7 @@ function NewsCardList({ data, button, register }) {
         };
       }
     );
-  else cardData = data;
+  } else cardData = data;
 
   const Button = button;
 

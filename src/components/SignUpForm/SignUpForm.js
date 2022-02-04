@@ -25,8 +25,11 @@ function SignUpForm({ switchForm, close, openMessage }) {
         openMessage(res.email === email);
       })
       .catch((err) => {
-        if (err.status === 409) setFormError("Email already exists");
-        else setFormError("An error occured on the server.");
+        if (err.status === 409) {
+          setFormError("Email already exists");
+        } else {
+          setFormError("An error occured on the server.");
+        }
       })
       .finally(() => setButtonText("Sign up"));
   }

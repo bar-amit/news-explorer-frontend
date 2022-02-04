@@ -23,8 +23,9 @@ function useSearch() {
   const pageSize = 20;
 
   async function search(query) {
-    if (typeof query !== "string" || query.length === 0)
+    if (typeof query !== "string" || query.length === 0) {
       return Promise.reject({ message: "bad query" });
+    }
 
     setResults([]);
     const url = `${baseURL}q=${query}&from=${dateFrom}&apiKey=${apiKey}&pageSize=${pageSize}`;
