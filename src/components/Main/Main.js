@@ -1,5 +1,4 @@
-import { useState, useContext, useEffect } from "react";
-import UserContext from "../../contexts/UserContext/UserContext";
+import { useState } from "react";
 import KeywordContext from "../../contexts/KeywordContext/KeywordContext";
 import SearchResults from "../SearchResults/SearchResults";
 import About from "../About/About";
@@ -10,8 +9,6 @@ import Search from "../Search/Search";
 import "./Main.css";
 
 function Main({ search: [cards, lastKeyword, searchNews], register }) {
-  const { Api } = useContext(UserContext);
-
   const [runPreloader, setRunPreloader] = useState(false);
   const [showError, setShowError] = useState(false);
   const [enableNotFound, setEnableNotFound] = useState(false);
@@ -26,10 +23,6 @@ function Main({ search: [cards, lastKeyword, searchNews], register }) {
       })
       .catch((err) => setShowError(true));
   }
-
-  useEffect(() => {
-    Api.getArticles().catch((e) => {});
-  });
 
   return (
     <main className="main">

@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import UserContext from "../../contexts/UserContext/UserContext";
 import { Routes, Route } from "react-router-dom";
 import useSearch from "../../utils/useSearch";
 import ProtectedRoute from "../ProtectedRout/ProtectedRoute";
@@ -11,6 +12,8 @@ import PopupMessage from "../PopupMessage/PopupMessage";
 import "./App.css";
 
 function App() {
+  const { Api, user } = useContext(UserContext);
+
   /* Message Popup */
   const [isSuccesful, setIsSuccesful] = useState(false);
   const [isMessagePopupOpen, setIsMessagePopupOpen] = useState(false);
@@ -46,6 +49,10 @@ function App() {
     if (isUserPopupOpen) window.addEventListener("keydown", handleEsc);
     return () => window.removeEventListener("keydown", handleEsc);
   }, [isUserPopupOpen]);
+
+  useEffect(() => {
+    Api.getArticles().catch(e => {});
+  }, [user])
 
   return (
     <div className="App">

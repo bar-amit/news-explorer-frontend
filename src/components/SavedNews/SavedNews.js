@@ -8,7 +8,7 @@ import DeleteArticleButton from "../DeleteArticleButton/DeleteArticleButton";
 import "./SavedNews.css";
 
 function SavedNews() {
-  const { articles, Api } = useContext(UserContext);
+  const { articles } = useContext(UserContext);
 
   const [keywordLine, setKeywordLine] = useState(getKeywords(articles));
 
@@ -30,10 +30,6 @@ function SavedNews() {
       } other`;
     return orderdKeywords.join(", ");
   }
-
-  useEffect(() => {
-    Api.getArticles().catch((e) => {});
-  });
 
   useEffect(() => {
     setKeywordLine(getKeywords(articles));
