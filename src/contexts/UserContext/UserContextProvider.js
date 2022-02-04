@@ -13,7 +13,7 @@ function UserContextProvider({ children }) {
     signIn({ email, password }) {
       return auth.signIn({ email, password }).then((userData) => {
         if (userData) setUser(userData);
-        return Promise.resolve(true);
+        return Promise.resolve();
       });
     },
     signOut() {

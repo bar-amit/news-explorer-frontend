@@ -20,7 +20,9 @@ function SignInForm({ switchForm, close }) {
 
     setButtonText("Loading...");
     Api.signIn({ email, password })
-      .then(() => close())
+      .then(() => {
+        close();
+      })
       .catch((err) => {
         if (err.status === 401) setFormError("Bad email and/or password");
         else setFormError("An error occured on the server.");
