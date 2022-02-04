@@ -24,17 +24,19 @@ function Header({ signUser }) {
       setInnerWidth(window.innerWidth);
     }
 
+    let prevScroll;
+
     function onScroll() {
       const currentPosition = window.scrollY;
       setScrollPosition(currentPosition);
-      if (!this.prevScroll) {
-        this.prevScroll = currentPosition;
-      } else if (currentPosition < this.prevScroll) {
+      if (!prevScroll) {
+        prevScroll = currentPosition;
+      } else if (currentPosition < prevScroll) {
         setHeaderVisibilityClass("");
       } else if (headerVisibilityClass === "") {
         setHeaderVisibilityClass(hiddenHeaderClass);
       }
-      this.prevScroll = currentPosition;
+      prevScroll = currentPosition;
     }
 
     window.addEventListener("scroll", onScroll, { passive: true });
