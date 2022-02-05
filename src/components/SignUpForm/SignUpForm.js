@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import UserContext from "../../contexts/UserContext/UserContext";
 import useForm from "../../utils/useForm";
+import UserForm from "../UserForm/UserForm";
 
 function SignUpForm({ switchForm, close, openMessage }) {
   const { Api } = useContext(UserContext);
@@ -35,60 +36,56 @@ function SignUpForm({ switchForm, close, openMessage }) {
   }
   return (
     <>
-      <h3 className="user-form__title">Sign up</h3>
-      <label className="user-form__label">
-        Email
-        <input
-          className="user-form__input"
-          type="email"
-          name="email"
-          placeholder="Enter email"
-          minLength="6"
-          maxLength="30"
-          value={email}
-          onChange={handleChange}
-        ></input>
-        <span className="user-form__error">{emailError}</span>
-      </label>
-      <label className="user-form__label">
-        Password
-        <input
-          className="user-form__input"
-          type="password"
-          name="password"
-          placeholder="Enter password"
-          minLength="6"
-          maxLength="30"
-          value={password}
-          onChange={handleChange}
-        ></input>
-        <span className="user-form__error">{passwordError}</span>
-      </label>
-      <label className="user-form__label">
-        Username
-        <input
-          className="user-form__input"
-          type="text"
-          name="name"
-          placeholder="Enter your username"
-          minLength="2"
-          maxLength="30"
-          value={name}
-          onChange={handleChange}
-        ></input>
-        <span className="user-form__error">{nameError}</span>
-      </label>
-      <button
-        className="user-form__button"
-        type="submit"
-        disabled={!isValid}
-        onClick={handleSubmit}
+      <UserForm
+        title="Sign up"
+        submit={handleSubmit}
+        buttonText={buttonText}
+        formError={formError}
+        isValid={isValid}
       >
-        <span className="user-form__error user-form__error_button">
-          {formError}
-        </span>
-        {buttonText}
-      </button>
+        <label className="user-form__label">
+          Email
+          <input
+            className="user-form__input"
+            type="email"
+            name="email"
+            placeholder="Enter email"
+            minLength="6"
+            maxLength="30"
+            value={email}
+            onChange={handleChange}
+          ></input>
+          <span className="user-form__error">{emailError}</span>
+        </label>
+        <label className="user-form__label">
+          Password
+          <input
+            className="user-form__input"
+            type="password"
+            name="password"
+            placeholder="Enter password"
+            minLength="6"
+            maxLength="30"
+            value={password}
+            onChange={handleChange}
+          ></input>
+          <span className="user-form__error">{passwordError}</span>
+        </label>
+        <label className="user-form__label">
+          Username
+          <input
+            className="user-form__input"
+            type="text"
+            name="name"
+            placeholder="Enter your username"
+            minLength="2"
+            maxLength="30"
+            value={name}
+            onChange={handleChange}
+          ></input>
+          <span className="user-form__error">{nameError}</span>
+        </label>
+      </UserForm>
       <p className="user-form__text">
         or{" "}
         <span className="user-form__link" onClick={switchForm}>

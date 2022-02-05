@@ -2,8 +2,6 @@ import Popup from "../Popup/Popup";
 import SignInForm from "../SignInForm/SignInForm";
 import SignUpForm from "../SignUpForm/SignUpForm";
 
-import "./PopupWithForm.css";
-
 function PopupWithForm({
   isOpen,
   close,
@@ -13,17 +11,15 @@ function PopupWithForm({
 }) {
   return (
     <Popup isOpen={isOpen} close={close}>
-      <form className="user-form" validate="true">
-        {!isRegistered ? (
-          <SignUpForm
-            switchForm={switchForm}
-            close={close}
-            openMessage={openMessage}
-          />
-        ) : (
-          <SignInForm switchForm={switchForm} close={close} />
-        )}
-      </form>
+      {!isRegistered ? (
+        <SignUpForm
+          switchForm={switchForm}
+          close={close}
+          openMessage={openMessage}
+        />
+      ) : (
+        <SignInForm switchForm={switchForm} close={close} />
+      )}
     </Popup>
   );
 }
