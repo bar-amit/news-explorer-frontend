@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 const apiKey = "8286abdd3c9b4565ab627f63bee922e2";
-const baseURL = "https://newsapi.org/v2/everything?";
+const baseURL = "https://nomoreparties.co/news/v2/top-headlines?";
 
 function getDateFromOneWeekAgo() {
   const d = new Date();
