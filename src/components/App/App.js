@@ -35,6 +35,8 @@ function App() {
     setIsRegistered(registered);
     setIsUserPopupOpen(true);
   }
+  const switchForm = () => setIsRegistered(!isRegistered);
+  const openLoginForm = () => openUserPopup(true);
 
   /* Search */
   const search = useSearch();
@@ -76,13 +78,13 @@ function App() {
         close={closeUserPopup}
         openMessage={openMessagePopup}
         isRegistered={isRegistered}
-        switchForm={() => setIsRegistered(!isRegistered)}
+        switchForm={switchForm}
       />
       <PopupMessage
         isOpen={isMessagePopupOpen}
         close={closeMessagePopup}
         isSuccesful={isSuccesful}
-        openLogin={() => openUserPopup(true)}
+        openLogin={openLoginForm}
       />
     </div>
   );
