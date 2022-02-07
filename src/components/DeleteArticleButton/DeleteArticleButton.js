@@ -1,10 +1,21 @@
+import { useContext } from "react";
+import UserContext from "../../contexts/UserContext/UserContext";
 import "./DeleteArticleButton.css";
 
-function DeleteArticleButton() {
+function DeleteArticleButton({ article }) {
+  const { Api } = useContext(UserContext);
+
+  const { _id: id } = article;
+
+  function deleteArticle() {
+    Api.deleteArticle(id);
+  }
+
   return (
     <button
       className="news-card__button news-card__button_type_delete"
       type="button"
+      onClick={deleteArticle}
     >
       <svg
         width="24"

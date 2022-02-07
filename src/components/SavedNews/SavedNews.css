@@ -1,11 +1,15 @@
 .saved-news {
   margin: 0;
   margin-top: 80px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
 }
 
 .saved-news__container {
   background-color: #f5f6f7;
   padding: 62px 104px 46px 104px;
+  flex-grow: 1;
 }
 
 @media screen and (max-width: 1220px) {

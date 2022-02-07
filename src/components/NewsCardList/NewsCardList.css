@@ -1,9 +1,22 @@
 .news-card-list {
+  --gap: 16px;
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
   list-style: none;
+  gap: var(--gap);
   padding: 0;
   margin: 0;
+}
+
+@media screen and (max-width: 1330px) {
+  .news-card-list {
+    --gap: 8px;
+  }
+}
+
+@media screen and (max-width: 760px) {
+  .news-card-list {
+    --gap: 16px;
+  }
 }

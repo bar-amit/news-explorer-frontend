@@ -1,6 +1,14 @@
-# Getting Started with Create React App
+# News Explorer App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is the frontend for the News Explorer app.
+
+It was created using Create React App.
+
+The app is searching news with [newsapi](https://newsapi.org/).
+
+The app is deployed [here](https://www.bar-news-explorer.students.nomoreparties.sbs/).
+
+Go to [https://www.bar-news-explorer.students.nomoreparties.sbs/](https://www.bar-news-explorer.students.nomoreparties.sbs/).
 
 ## Available Scripts
 

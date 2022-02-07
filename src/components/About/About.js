@@ -4,7 +4,11 @@ import aboutImage from "../../images/main__image.png";
 function About() {
   return (
     <section className="about">
-      <img className="about__image" src={aboutImage} alt="A woman meditating in the outdoors" />
+      <img
+        className="about__image"
+        src={aboutImage}
+        alt="A woman meditating in the outdoors"
+      />
       <article className="about__column">
         <h3 className="about__title">About the author</h3>
         <p className="about__text">

@@ -1,7 +1,7 @@
 .news-card {
   margin-bottom: 16px;
   position: relative;
-  width: calc((100% - 2 * 16px) / 3);
+  width: calc((100% - 2 * var(--gap)) / 3);
   aspect-ratio: 1 / 1.44;
   border-radius: 16px;
   display: flex;
@@ -121,7 +121,6 @@
 
 @media screen and (max-width: 1330px) {
   .news-card {
-    width: calc((100% - 2 * 8px) / 3);
     aspect-ratio: 0.533;
     box-shadow: -6px 8px 15px 1px #1a1b223a;
   }
@@ -150,7 +149,7 @@
 
 @media screen and (max-width: 760px) {
   .news-card {
-    width: calc((100% - 16px) / 2);
+    width: calc((100% - var(--gap)) / 2);
     aspect-ratio: 1 / 1.44;
   }
 

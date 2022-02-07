@@ -1,0 +1,7 @@
+.logout {
+  padding-left: 10px;
+}
+
+.logout__icon {
+  fill: var(--color);
+}
